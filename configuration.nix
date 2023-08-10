@@ -12,15 +12,14 @@
   nixpkgs.config.allowUnfree = true;
 
   imports =
-    [ 
+  [ 
       # import Home Manager
       inputs.home-manager.nixosModules.home-manager
       # inputs.stylix.nixosModules.stylix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./config/zsh.nix
-    ];
+  ];
 
 
 
@@ -186,7 +185,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
-    users.yosyo = import ./home.nix;
+    users.yosyo = import ./home-manager/home.nix;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
