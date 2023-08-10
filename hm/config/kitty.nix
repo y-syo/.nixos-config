@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-	kitty = {
+	programs.kitty = {
 		enable = true;
 		extraConfig = ''
 			enable_audio_bell no
