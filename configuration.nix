@@ -185,7 +185,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
-    users.yosyo = import ./home-manager/home.nix;
+    users.yosyo = import ./hm/home.nix;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
