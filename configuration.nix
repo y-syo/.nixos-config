@@ -108,6 +108,7 @@
     xwayland.enable = true;
     nvidiaPatches = true;
   };
+  programs.zsh.enable = true;
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
