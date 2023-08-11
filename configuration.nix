@@ -5,9 +5,6 @@
 { config, pkgs, lib, inputs, outputs, ... }:
 
 {
-  # snowflakes is a persona 4 reference
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # allow non-FOSS apps (deprecated and bad)
   nixpkgs.config.allowUnfree = true;
 
@@ -15,7 +12,6 @@
   [ 
       # import Home Manager
       inputs.home-manager.nixosModules.home-manager
-      # inputs.stylix.nixosModules.stylix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -141,6 +137,7 @@
       enable = true;
       joinNetworks = [ "52b337794fa1f40e" ];
     };
+    fstrim.enable = true;
   };
 
   security.rtkit.enable = true;
@@ -162,7 +159,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # essentials / utils / libs / others / shitposting
-    vim wget curl neofetch grim slurp wl-clipboard wget nix-index mpv wayland wayland-protocols libva-utils vulkan-tools vulkan-headers vulkan-validation-layers libcamera xdg-utils mate.mate-polkit seatd pciutils bat lsd killall jaq socat ripgrep dunst playerctl jc
+    vim wget curl neofetch grim slurp wl-clipboard wget nix-index mpv wayland wayland-protocols libva-utils vulkan-tools vulkan-headers vulkan-validation-layers libcamera xdg-utils mate.mate-polkit seatd pciutils bat lsd killall jaq socat ripgrep dunst playerctl jc brightnessctl
     # apps
     discord firefox cinnamon.nemo steam drawing spotify obs-studio easyeffects
     # rice
@@ -188,6 +185,19 @@
     extraSpecialArgs = { inherit inputs; };
     users.yosyo = import ./hm/home.nix;
   };
+
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
+  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
