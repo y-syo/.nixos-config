@@ -4,7 +4,8 @@
   inputs = {
 
     # Stylix
-    stylix.url = "github:danth/stylix/release-23.05";
+    # stylix.url = "github:danth/stylix/release-23.05";
+    stylix.url = "github:y-syo/stylix-release-23.95-fix";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";

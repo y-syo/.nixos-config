@@ -374,17 +374,16 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1690463825,
-        "narHash": "sha256-LILKFcKNVxYcYmzCB2+Gswyob5XrPJAF1YBExFR2yak=",
-        "owner": "danth",
-        "repo": "stylix",
-        "rev": "5c829554280f3139ddbfce8561d7430efbf2abfb",
+        "lastModified": 1691760584,
+        "narHash": "sha256-bK6FFbsKtyLKJLwgHerWp/EMMoWqE0UJk0KEbgYICbY=",
+        "owner": "y-syo",
+        "repo": "stylix-release-23.95-fix",
+        "rev": "c7241256ce42596c35784799d36d02734695843b",
         "type": "github"
       },
       "original": {
-        "owner": "danth",
-        "ref": "release-23.05",
-        "repo": "stylix",
+        "owner": "y-syo",
+        "repo": "stylix-release-23.95-fix",
         "type": "github"
       }
     },

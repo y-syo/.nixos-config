@@ -4,6 +4,7 @@
     ./config/zsh.nix
     ./config/stylix.nix
     ./config/kitty.nix
+    ./config/vscode.nix
   ];
 
   nixpkgs = {
