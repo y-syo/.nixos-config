@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c11e3c00-3daa-4fdf-a1bc-bb454178f6d1";
@@ -37,6 +38,7 @@
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     nvidia = {
+      nvidiaPersistenced = true;
       prime = {
 	allowExternalGpu = true;
 	reverseSync.enable = true;
@@ -50,11 +52,4 @@
       nvidiaSettings = false;
     };
   };
-  # specialisation = {
-  #   external-display-configuration = {
-  #     system.nixos.tags = [ "external-display" ] ;
-  #     hardware.nvidia.prime.offload.enable = lib.mkForce false;
-  #     hardware.nvidia.powerManagement.enable = lib.mkForce false;
-  #   };
-  # };
 }

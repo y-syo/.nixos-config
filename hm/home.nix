@@ -5,6 +5,7 @@
     ./config/stylix.nix
     ./config/kitty.nix
     ./config/vscode.nix
+    ./config/nixvim.nix
   ];
 
   nixpkgs = {
@@ -24,6 +25,14 @@
       userEmail = "mmoussou@student.42angouleme.fr";
     };
     gh.enable = true;
+  };
+
+  xdg.desktopEntries = {
+    yuzu = {
+	name = "yuzu - The Right One";
+	icon = "yuzu";
+	exec = "env QT_QPA_PLATFORM=xcb yuzu";
+      };
   };
 
   # Set your username

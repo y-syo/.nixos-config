@@ -31,14 +31,13 @@
 		targets.gtk.extraCss = ''
 @define-color accent_color #cba6f7;
 @define-color accent_bg_color #cba6f7;
-
 '';
 		opacity.terminal = 0.8;
 
 		fonts = {
 			monospace = {
-				name = "cozette";
-				package = pkgs.cozette;
+				name = "Liga SFMono Nerd Font";
+				package = pkgs.sf-mono-liga-bin;
 				# name = "JetBrainsMono-Regular";
 				# package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
 			};

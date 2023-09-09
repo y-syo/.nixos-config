@@ -34,7 +34,7 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       EDITOR = "vim";
-      # VISUAL = "codium";
+      VISUAL = "codium";
       XDG_SESSION_TYPE = "wayland";
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_DESKTOP = "Hyprland";
@@ -64,6 +64,8 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.firewall.enable = false;
+  networking.enableIPv6 = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -158,16 +160,32 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+
     # essentials / utils / libs / others / shitposting
-    vim wget curl neofetch grim slurp wl-clipboard wget nix-index mpv wayland wayland-protocols libva-utils vulkan-tools vulkan-headers vulkan-validation-layers libcamera xdg-utils mate.mate-polkit seatd pciutils bat lsd killall jaq socat ripgrep dunst playerctl jc brightnessctl
+    vim wget curl neofetch grim slurp wl-clipboard wget nix-index mpv wayland wayland-protocols libva-utils vulkan-tools vulkan-headers vulkan-validation-layers libcamera xdg-utils mate.mate-polkit seatd pciutils bat lsd killall jaq socat ripgrep playerctl jc brightnessctl gamescope git
     # apps
-    discord firefox cinnamon.nemo steam drawing spotify obs-studio easyeffects
+    discord firefox cinnamon.nemo steam drawing spotify obs-studio easyeffects qbittorrent cemu yuzu
     # rice
-    swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default eww-wayland inputs.gross.packages."${pkgs.system}".default
+    swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default eww-wayland inputs.gross.packages."${pkgs.system}".default inputs.ags.packages."${pkgs.system}".default
+  ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
+        pname = "sf-mono-liga-bin";
+        version = "dev";
+        src = inputs.sf-mono-liga-src;
+        dontConfigure = true;
+        installPhase = ''
+          mkdir -p $out/share/fonts/opentype
+          cp -R $src/*.otf $out/share/fonts/opentype/
+        '';
+      };
+    }) 
   ];
 
   fonts = {
-    fonts = with pkgs; [ cozette tamsyn jetbrains-mono ];
+    fonts = with pkgs; [ cozette tamsyn jetbrains-mono sf-mono-liga-bin ];
   };
 
   xdg = {
