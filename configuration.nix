@@ -22,7 +22,7 @@
   # environment and session variables
 
   environment = {
-#    variables = {
+	variables = {
 #      GBM_BACKEND = "nvidia-drm";
 #      LIBVA_DRIVER_NAME = "nvidia";
 #      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
@@ -30,8 +30,10 @@
 #      __NVD_BACKEND = "direct";
 #      STAGING_SHARED_MEMORY = "1";
 #      STAGING_WRITECOPY = "1";
-#    };
+	};
     sessionVariables = {
+	  USER = "mmoussou";
+	  MAIL = "mmoussou@student.42angouleme.fr";
       NIXOS_OZONE_WL = "1";
       EDITOR = "vim";
       VISUAL = "codium";
@@ -66,6 +68,7 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.firewall.enable = false;
   networking.enableIPv6 = false;
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -164,7 +167,7 @@
     # essentials / utils / libs / others / shitposting
     vim wget curl neofetch grim slurp wl-clipboard wget nix-index mpv wayland wayland-protocols libva-utils vulkan-tools vulkan-headers vulkan-validation-layers libcamera xdg-utils mate.mate-polkit seatd pciutils bat lsd killall jaq socat ripgrep playerctl jc brightnessctl gamescope git
     # apps
-    discord firefox cinnamon.nemo steam drawing spotify obs-studio easyeffects qbittorrent cemu yuzu
+    discord firefox cinnamon.nemo steam drawing spotify obs-studio easyeffects qbittorrent cemu yuzu libreoffice lutris
     # rice
     swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default eww-wayland inputs.gross.packages."${pkgs.system}".default inputs.ags.packages."${pkgs.system}".default
   ];

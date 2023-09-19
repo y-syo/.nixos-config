@@ -7,9 +7,11 @@
 	shellAliases = {
 		re = "sudo nixos-rebuild switch";
 		ls = "lsd";
-		grep = "grep --color=auto";
+        grep = "grep --color=auto";
+    	catt = "cat";
 		cat = "bat";
 		kys = "shutdown now";
+		c = "gcc -Wall -Werror -Wextra";
 	};
 	initExtra = ''
 	#Prompt

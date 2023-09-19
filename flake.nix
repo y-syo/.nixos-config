@@ -23,7 +23,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
     # NixVim
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim/nixos-23.05";
 
     # hyprsome
     hyprsome.url = "github:sopa0/hyprsome";
