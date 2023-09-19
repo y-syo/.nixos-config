@@ -37,9 +37,8 @@ workspace = 16, monitor:HDMI-A-1
 
 # Execute your favorite apps at launch
 exec-once = swww init & waybar & eww daemon & eww open-many bar-m1 bar-m2
-## exec-once = /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=easyeffects-wrapper com.github.wwmm.easyeffects
-# exec-once = noisetorch
-## exec-once = swww img -o HDMI-A-1 ${config.stylix.image} & swww img -o eDP-1 ${config.stylix.image}
+# exec-once = /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=easyeffects-wrapper com.github.wwmm.easyeffects
+exec-once = swww img -o HDMI-A-1 ${config.stylix.image} & swww img -o eDP-1 ${config.stylix.image}
 
 # Source a file (multi-file configs)
 # source = ~/.config/hypr/myColors.conf
