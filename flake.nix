@@ -22,17 +22,11 @@
     # nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    # NixVim
-    nixvim.url = "github:nix-community/nixvim/nixos-23.05";
-
     # hyprsome
     hyprsome.url = "github:sopa0/hyprsome";
 
     # gross
     gross.url = "github:fufexan/gross";
-
-    # ags
-    ags.url = "github:Aylur/ags";
 
     # HSR & GI
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
@@ -44,7 +38,7 @@
     extra-trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
   };
 
-  outputs = inputs@{ self, nixpkgs, hyprsome, stylix, home-manager, gross, aagl, ags, nixvim, ... }: {
+  outputs = inputs@{ self, nixpkgs, hyprsome, stylix, home-manager, gross, aagl, ... }: {
     nixosConfigurations = {
       outerwilds = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
