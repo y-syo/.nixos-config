@@ -32,8 +32,8 @@
 #      STAGING_WRITECOPY = "1";
 	};
     sessionVariables = {
-	  USER = "mmoussou";
-	  MAIL = "mmoussou@student.42angouleme.fr";
+	  # USER = "mmoussou";
+	  # MAIL = "mmoussou@student.42angouleme.fr";
       NIXOS_OZONE_WL = "1";
       EDITOR = "vim";
       VISUAL = "codium";
