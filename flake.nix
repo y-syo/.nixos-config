@@ -5,7 +5,7 @@
 
     # Stylix
     # stylix.url = "github:danth/stylix/release-23.05";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/beb35709c9a769a5f279d3177af778a15dcbda46";
 
     # home Manager
     home-manager = {
