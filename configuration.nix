@@ -169,7 +169,7 @@
     # apps
     discord firefox cinnamon.nemo steam drawing spotify obs-studio easyeffects qbittorrent cemu yuzu libreoffice lutris
     # rice
-    swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default eww-wayland inputs.gross.packages."${pkgs.system}".default
+    swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default inputs.gross.packages."${pkgs.system}".default
 
 	];
 

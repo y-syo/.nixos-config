@@ -6,6 +6,7 @@
     ./config/kitty.nix
     ./config/vscode.nix
 	./config/hyprland.nix
+	./config/eww.nix
   ];
 
   nixpkgs = {
