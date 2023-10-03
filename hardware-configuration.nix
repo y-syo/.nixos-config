@@ -41,9 +41,10 @@
       nvidiaPersistenced = true;
       prime = {
 	allowExternalGpu = true;
-	reverseSync.enable = true;
+	# reverseSync.enable = true;
 	sync.enable = false;
 	offload.enable = true;
+	offload.enableOffloadCmd = true;
 	nvidiaBusId = "PCI:1:0:0";
 	amdgpuBusId = "PCI:7:0:0";
       };
