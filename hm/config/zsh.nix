@@ -5,11 +5,9 @@
 	enable = true;
 	enableCompletion = true;
 	shellAliases = {
-		re = "sudo nixos-rebuild switch";
+		re = "sudo nixos-rebuild switch --impure";
 		ls = "lsd";
         grep = "grep --color=auto";
-    	catt = "cat";
-		cat = "bat";
 		kys = "shutdown now";
 		c = "gcc -Wall -Werror -Wextra";
 	};

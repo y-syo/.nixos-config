@@ -1,0 +1,211 @@
+(include "./menu.yuck")
+
+
+
+;; ---------------- variables ---------------- ;;
+
+
+
+(defvar ws_reveal true)
+(defvar mc_reveal false)
+(deflisten hyprland "scripts/hyprland")
+(deflisten music "gross music")
+
+
+
+;; ---------------- windows ---------------- ;;
+
+
+
+(defwindow bar
+	:monitor 0
+	:geometry (geometry	:x "0%"	:y "10px"	:width "99%"	:height "24px"	:anchor "top center")
+	:stacking "fg"
+	:exclusive true
+	(bar-content)
+)
+
+
+
+;; ---------------- contents ---------------- ;;
+
+
+
+(defwidget bar-content []
+	(centerbox
+		:orientation "h"
+		(bar-content-left)
+		(bar-content-center)
+		(bar-content-right)
+	)
+)
+
+
+
+(defwidget bar-content-left []
+	(box
+		:class "content-left"
+		:orientation "h"
+		:halign "start"
+		:space-evenly false
+		(home-module	:logo "")
+		(workspaces-module)
+	)
+)
+
+(defwidget bar-content-center []
+	(box
+		:class "content-center"
+		:orientation "h"
+		:halign "center"
+		:space-evenly false
+		(clock-module)
+	)
+)
+
+(defwidget bar-content-right []
+	(box
+		:class "content-right"
+		:orientation "h"
+		:halign "end"
+		:space-evenly false
+		(right-layer3)
+	)
+)
+
+
+
+;; ---------------- content-left ---------------- ;;
+
+
+
+(defwidget home-module [logo]
+	(button
+		:onclick {ws_reveal ? "${EWW_CMD} update ws_reveal=false" : "${EWW_CMD} update ws_reveal=true"}
+		(label
+			:class "home"
+			:text {logo}
+		)
+	)
+)
+
+(defwidget workspaces-module []
+	(revealer
+		:transition "slideright"
+		:reveal ws_reveal
+		:duration "500ms"
+		(box
+			:class "workspaces"
+			:orientation "h"
+			:halign "start"
+			:space-evenly false
+			(for ws in {hyprland.workspaces}
+				(button
+				:onclick "hyprsome workspace ${ws.number}"
+				:class "ws ${ws.focused == true ? "focused" : ""} ${ws.number == hyprland.latest ? "latest" : ""} ${ws.monitor != 0 ? "active" : "inactive"} ${ws.applist}"
+				)
+			)
+		)
+	)
+)
+
+
+
+;; ---------------- content-center ---------------- ;;
+
+
+
+(defwidget clock-module []
+	(label
+		:class "clock"
+		:text {formattime(EWW_TIME, "%H : %M | %A %d %B")}
+	)
+)
+
+
+
+;; ---------------- content-right ---------------- ;;
+
+
+
+(defwidget right-layer1 []
+	(box
+		:class "right-layer1"
+		:orientation "h"
+		:halign "end"
+		:space-evenly false
+		(button-menu-module)
+	)
+)
+
+(defwidget right-layer2 []
+	(box
+		:class "right-layer2"
+		:orientation "h"
+		:halign "end"
+		:space-evenly false
+		(battery-module)
+		(right-layer1)
+	)
+)
+
+(defwidget right-layer3 []
+	(box
+		:class "right-layer3"
+		:orientation "h"
+		:halign "end"
+		:space-evenly false
+		(music-module)
+		(right-layer2)
+	)
+)
+
+
+(defwidget music-module []
+	(eventbox
+		:onhover "${EWW_CMD} update mc_reveal=true"
+		:onhoverlost "${EWW_CMD} update mc_reveal=false"
+		(box
+			:orientation "h"
+			:halign "end"
+			:space-evenly false
+			(label
+				:class "music-icon"
+				:text "󰓇"
+			)
+			(revealer
+				:transition "slideleft"
+				:reveal mc_reveal
+				:duration "500ms"
+				(box
+					:space-evenly false
+					(label	:class "music-separator"	:text "| ")
+					(box
+						:class "music-cover"
+						:valign "center"
+						:style "background-image: url(\"${music.cover}\");"
+					)
+					(label	:class "music-label"	:text "${music.artist} - ${music.title}")
+					(button	:class "music-button"	:onclick "playerctl previous"	"󰒮")
+					(button	:class "music-button"	:onclick "playerctl play-pause"	{music.status != "Playing" ? "󰐊" : "󰏤"})
+					(button	:class "music-button"	:onclick "playerctl next"	"󰒭")
+				)
+			)
+		)
+	)
+)
+
+(defwidget battery-module []
+	(label
+		:class "battery"
+		:text {EWW_BATTERY["BAT0"].capacity}
+	)
+)
+
+(defwidget button-menu-module []
+	(button
+		:class "button-menu"
+		:onclick "${EWW_CMD} open --toggle menu"
+		""
+	)
+)

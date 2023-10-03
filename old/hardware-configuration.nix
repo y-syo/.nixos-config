@@ -8,11 +8,10 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/39c1fd75-f6aa-48e3-8a8a-02120c4c5151";
@@ -35,21 +34,5 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    nvidia = {
-      nvidiaPersistenced = true;
-      prime = {
-	allowExternalGpu = true;
-	reverseSync.enable = true;
-	sync.enable = false;
-	offload.enable = true;
-	nvidiaBusId = "PCI:1:0:0";
-	amdgpuBusId = "PCI:7:0:0";
-      };
-      package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
-      modesetting.enable = lib.mkDefault true;
-      nvidiaSettings = false;
-    };
-  };
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

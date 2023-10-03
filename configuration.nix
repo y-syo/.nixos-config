@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+# E# dit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
@@ -62,7 +62,7 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "outerwilds"; # Define your hostname.
+  networking.hostName = "cravite"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -165,9 +165,9 @@
   environment.systemPackages = with pkgs; [
 
     # essentials / utils / libs / others / shitposting
-    vim wget curl neofetch grim slurp wl-clipboard wget nix-index mpv wayland wayland-protocols libva-utils vulkan-tools vulkan-headers vulkan-validation-layers libcamera xdg-utils mate.mate-polkit seatd pciutils bat lsd killall jaq socat ripgrep playerctl jc brightnessctl gamescope git
+    vim wget curl neofetch grim slurp wl-clipboard wget nix-index mpv wayland wayland-protocols libva-utils vulkan-tools vulkan-headers vulkan-validation-layers libcamera xdg-utils mate.mate-polkit seatd pciutils lsd killall jaq socat ripgrep playerctl jc brightnessctl gamescope git dunst pulseaudio btop
     # apps
-    discord firefox cinnamon.nemo steam drawing spotify obs-studio easyeffects qbittorrent cemu yuzu libreoffice lutris
+    discord webcord firefox cinnamon.nemo drawing spotify obs-studio easyeffects qbittorrent libreoffice
     # rice
     swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default inputs.gross.packages."${pkgs.system}".default
 
@@ -237,8 +237,6 @@
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

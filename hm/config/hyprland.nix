@@ -14,7 +14,8 @@ misc:vfr = true
 # See https://wiki.hyprland.org/Configuring/Monitors/
 monitor=eDP-1,1920x1080@144,0x0,1
 workspace=eDP-1,1
-monitor=HDMI-A-1,1920x1080@75,1920x0,1
+# monitor=HDMI-A-1,1920x1080@75,1920x0,1
+monitor=HDMI-A-1,prefered,auto,1
 workspace=HDMI-A-1,11
 
 # workspaces binding for hyprsome, see https://github.com/sopa0/hyprsome
@@ -36,7 +37,8 @@ workspace = 16, monitor:HDMI-A-1
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
 # Execute your favorite apps at launch
-exec-once = swww init & waybar & eww daemon & eww open-many bar-m1 bar-m2
+exec-once = swww init
+# exec-once = eww daemon & eww open bar
 # exec-once = /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=easyeffects-wrapper com.github.wwmm.easyeffects
 exec-once = swww img -o HDMI-A-1 ${config.stylix.image} & swww img -o eDP-1 ${config.stylix.image}
 
@@ -192,7 +194,7 @@ bind = $mainMod SHIFT, 2, exec, hyprsome move 2
 bind = $mainMod SHIFT, 3, exec, hyprsome move 3
 bind = $mainMod SHIFT, 4, exec, hyprsome move 4
 bind = $mainMod SHIFT, 5, exec, hyprsome move 5
-bind - $mainMod SHIFT, 6, exec, hyprsome move 6
+bind = $mainMod SHIFT, 6, exec, hyprsome move 6
 
 # Scroll through existing workspaces with mainMod + scroll
 bind = $mainMod, mouse_down, workspace, e+1

@@ -28,13 +28,13 @@
     gh.enable = true;
   };
 
-  xdg.desktopEntries = {
-    yuzu = {
-	name = "yuzu - The Right One";
-	icon = "yuzu";
-	exec = "env QT_QPA_PLATFORM=xcb yuzu";
-      };
-  };
+  # xdg.desktopEntries = {
+  #   yuzu = {
+# 	name = "yuzu - The Right One";
+# 	icon = "yuzu";
+# 	exec = "env QT_QPA_PLATFORM=xcb yuzu";
+#       };
+#   };
 
   # Set your username
   home.username = "yosyo";

@@ -1,0 +1,172 @@
+$black: #1e1e2e;
+$white: #cdd6f4;
+$mantle: #181825;
+$surface0: #313244;
+$surface1: #45475a;
+$surface2: #585b70;
+$rosewater: #f5e0dc;
+$lavender: #b4befe;
+$red: #f38ba8;
+$peach: #fab387;
+$yellow: #f9e2af;
+$green: #a6e3a1;
+$teal: #94e2d5;
+$blue: #89b4fa;
+$mauve: #cba6f7;
+$flamingo: #f2cdcd;
+
+* {
+	all: unset;
+}
+
+scale trough {
+	background-color: $surface0;
+	border-radius: 10px;
+	min-height: 10px;
+	min-width: 200px;
+}
+
+scale trough highlight {
+	background-color: $red;
+	color: $white;
+	border-radius: 10px;
+}
+
+.bar, .menu {
+	background-color: $black;
+	color: $white;
+	border-radius: 10px;
+	border: 2px solid $surface1;// #6c7086;
+}
+
+// home
+
+.home {
+	color: $black;
+	padding: 0px 5px;
+	background-color: $blue;
+	border-right: 10px solid $blue;
+	border-left: 3px solid $blue;
+	border-radius: 10px;
+}
+
+// Workspaces
+
+@keyframes ws-anim {
+	from {
+		min-width: 14px;
+	}
+
+	to {
+		min-width: 30px;
+		border-color: $white;
+	}
+}
+
+.workspaces {
+	padding: 0px 5px;
+}
+
+.ws {
+	border-color: $surface0;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 99px;
+	margin: 7px 5px;
+	min-height: 14px;
+	min-width: 14px;
+}
+
+.ws:hover {
+	background-color: $surface0;
+	border-color: $surface2;
+}
+
+.inactive {
+	border-color: $surface0;
+}
+
+.active {
+	border-color: $white;
+}
+
+.latest {
+	animation-name: ws-anim;
+	animation-direction: reverse;
+	animation-duration: 400ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in; //cubic-bezier(1, 0, .1, .3);
+}
+
+.focused {
+	animation-name: ws-anim;
+	animation-duration: 400ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out; //cubic-bezier(.3, .1, 0, 1);
+
+}
+
+.Discord {
+	border-color: $blue;
+}
+
+.Spotify {
+	border-color: $green;
+}
+
+// Clock
+
+.clock {
+	font-weight: 600;
+}
+
+// right-layers
+
+.right-layer1 {
+	color: $black;
+	background-color: $red;
+	border-left: 10px solid $red;
+	border-radius: 10px;
+}
+
+.right-layer2 {
+	color: $white;
+	background-color: $surface2;
+	border-left: 10px solid $surface2;
+	border-radius: 10px;
+}
+
+.right-layer3 {
+	color: $black;
+	background-color: $green;
+	border-left: 10px solid $green;
+	border-radius: 10px;
+}
+
+// music
+
+.music-icon, .music-label, .music-button {
+	padding-right: 10px;
+}
+
+.music-cover {
+	background-position: center;
+	background-size: cover;
+	border-radius: 5px;
+	min-height: 25px;
+	min-width: 25px;
+	margin-right: 10px;
+}
+
+// battery
+
+.battery {
+	font-weight: 600;
+	padding: 0px 10px 0px 5px;
+}
+
+// button-menu
+
+.button-menu {
+	padding-right: 15px;
+}
