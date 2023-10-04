@@ -40,7 +40,7 @@ workspace = 16, monitor:HDMI-A-1
 exec-once = swww init
 # exec-once = eww daemon & eww open bar
 # exec-once = /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=easyeffects-wrapper com.github.wwmm.easyeffects
-exec-once = swww img -o HDMI-A-1 ${config.stylix.image} & swww img -o eDP-1 ${config.stylix.image}
+# exec-once = swww img -o HDMI-A-1 ${config.stylix.image} & swww img -o eDP-1 ${config.stylix.image}
 
 # Source a file (multi-file configs)
 # source = ~/.config/hypr/myColors.conf
@@ -143,7 +143,7 @@ device:epic mouse V1 {
 $mainMod = SUPER
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-bind = $mainMod, Return, exec, kitty
+bind = $mainMod, Return, exec, __NV_PRIME_RENDER_OFFLOAD=1 __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only kitty -1
 bind = $mainMod, w, killactive, 
 bind = $mainMod, M, exit, 
 bind = $mainMod, E, exec, nemo

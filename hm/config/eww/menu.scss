@@ -1,0 +1,274 @@
+// --- menu user ---
+
+
+
+.menu-user-box {
+	margin: 20px 10px 10px 20px;
+	padding: 10px 15px;
+	background-color: $surface0;
+	border-radius: 10px;
+	min-width: 340px;
+}
+
+.menu-user-profile-picture {
+	background-position: center;
+	background-size: cover;
+	border-radius: 99px;
+	min-height: 45px;
+	min-width: 45px;
+	margin: 0px 30px 0px 10px;
+
+}
+
+.menu-user-label {
+	font-weight: 700;
+	font-size: 18px;
+}
+
+
+
+// --- menu power buttons ---
+
+
+
+.menu-power {
+	margin: 20px 20px 10px 10px;
+	padding: 0px 15px;
+	background-color: $surface0;
+	border-radius: 10px;
+}
+
+.menu-power-separator {
+	font-weight: 700;
+	font-size: 20px;
+	padding: 0px 5px;
+	color: $surface2;
+}
+
+.menu-power-button {
+	font-size: 25px;
+	padding: 0px 15px 0px 5px;
+}
+
+.sleep {
+	padding-right: 10px;
+	color: $flamingo;
+}
+
+.reboot {
+	color: $teal;
+}
+
+.shutdown {
+	padding: 0px 12px 0px 8px;
+	color: $lavender;
+}
+
+.menu-power-button:hover {
+	color: $white;
+}
+
+
+
+// --- menu info ---
+
+
+
+.menu-net-info {
+	margin: 10px 10px 10px 20px;
+	padding: 10px 15px;
+	background-color: $surface0;
+	border-radius: 10px;
+}
+
+.menu-net-title {
+	font-size: 18px;
+	font-weight: 700;
+	padding-left: 10px;
+}
+
+.menu-net-status {
+	color: $surface2;
+	padding-left: 10px;
+}
+
+.menu-wifi-logo {
+	min-height: 45px;
+	min-width: 40px;
+	background-color: $lavender;
+	color: $black;
+	border-radius: 99px;
+	font-size: 20px;
+	padding-right: 5px;
+	margin: 10px 15px 10px 5px;
+}
+
+.menu-bluetooth-logo {
+	min-height: 45px;
+	min-width: 40px;
+	background-color: $surface2;
+	color: $black;
+	border-radius: 99px;
+	font-size: 20px;
+	padding-right: 5px;
+	margin: 10px 15px 10px 5px;
+}
+
+.menu-dnd-logo {
+	min-height: 45px;
+	min-width: 40px;
+	background-color: $surface2;
+	color: $black;
+	border-radius: 99px;
+	font-size: 20px;
+	padding-right: 5px;
+	margin: 10px 15px 10px 5px;
+}
+
+
+
+.menu-power-saving, .menu-night {
+	margin: 10px 20px 10px 10px;
+	padding: 0px 15px;
+	background-color: $surface0;
+	border-radius: 10px;
+}
+
+.menu-power-saving-logo {
+	min-height: 45px;
+	min-width: 45px;
+	background-color: $surface2;
+	color: $black;
+	border-radius: 99px;
+	font-size: 20px;
+	margin: 10px 15px 10px 5px;
+}
+
+.menu-night-logo {
+	min-height: 45px;
+	min-width: 40px;
+	background-color: $lavender;
+	color: $black;
+	border-radius: 99px;
+	font-size: 20px;
+	padding-right: 5px;
+	margin: 10px 15px 10px 5px;
+}
+
+
+
+// --- menu system info ---
+
+
+
+.menu-sys-hardware-container, .menu-disk {
+	margin: 10px 20px 10px 20px;
+	padding: 10px 15px;
+	background-color: $surface0;
+	border-radius: 10px;
+}
+
+.menu-ram, .menu-gpu-amd {
+	padding-left: 15px;
+}
+
+.menu-sys-progress progressbar trough {
+	background-color: $surface1;
+	border-radius: 10px;
+	min-height: 10px;
+	margin: 10px 20px 10px 0px;
+}
+
+.menu-sys-progress progressbar trough progress {
+	min-height: 10px;
+	background-color: $red;
+	border-radius: 10px;
+}
+
+.menu-cpu progressbar trough progress {
+	background-color: $lavender;
+}
+
+.menu-ram progressbar trough progress {
+	background-color: $yellow;
+}
+
+.menu-gpu progressbar trough progress {
+	background-color: $teal;
+}
+
+.menu-gpu-amd progressbar trough progress {
+	background-color: $red;
+}
+
+.menu-disk {
+	padding-bottom: 20px;
+}
+
+.menu-disk progressbar trough {
+	background-color: $surface1;
+	border-radius: 10px;
+	min-height: 10px;
+	margin: 10px 20px 0px 0px;
+}
+
+.menu-disk progressbar trough progress {
+	min-height: 10px;
+	background-color: $red;
+	border-radius: 10px;
+}
+
+// --- sliders ---
+
+.menu-slider-volume {
+	margin: 10px 10px 20px 20px;
+	padding: 10px 25px;
+	background-color: $surface0;
+	border-radius: 10px;
+}
+
+.menu-slider-volume scale trough {
+	background-color: $surface1;
+	border-radius: 99px;
+	min-height: 20px;
+	min-width: 165px;
+}
+
+.menu-slider-volume scale trough highlight {
+	background-color: $lavender;
+	color: $white;
+	border-radius: 10px;
+}
+
+.menu-slider-volume-logo {
+	font-size: 35px;
+	padding-right: 25px;
+}
+
+
+
+.menu-slider-brightness {
+	margin: 10px 20px 20px 10px;
+	padding: 10px 25px;
+	background-color: $surface0;
+	border-radius: 10px;
+}
+
+.menu-slider-brightness scale trough {
+	background-color: $surface1;
+	border-radius: 99px;
+	min-height: 20px;
+	min-width: 165px;
+}
+
+.menu-slider-brightness scale trough highlight {
+	background-color: $lavender;
+	color: $white;
+	border-radius: 10px;
+}
+
+.menu-slider-brightness-logo {
+	font-size: 35px;
+	padding-right: 30px;
+}
+

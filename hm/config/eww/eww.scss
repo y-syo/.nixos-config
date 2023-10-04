@@ -15,21 +15,10 @@ $blue: #89b4fa;
 $mauve: #cba6f7;
 $flamingo: #f2cdcd;
 
+@import "menu.scss";
+
 * {
 	all: unset;
-}
-
-scale trough {
-	background-color: $surface0;
-	border-radius: 10px;
-	min-height: 10px;
-	min-width: 200px;
-}
-
-scale trough highlight {
-	background-color: $red;
-	color: $white;
-	border-radius: 10px;
 }
 
 .bar, .menu {
@@ -124,8 +113,8 @@ scale trough highlight {
 
 .right-layer1 {
 	color: $black;
-	background-color: $red;
-	border-left: 10px solid $red;
+	background-color: $flamingo;
+	border-left: 10px solid $flamingo;
 	border-radius: 10px;
 }
 
@@ -138,8 +127,8 @@ scale trough highlight {
 
 .right-layer3 {
 	color: $black;
-	background-color: $green;
-	border-left: 10px solid $green;
+	background-color: $teal;
+	border-left: 10px solid $teal;
 	border-radius: 10px;
 }
 
@@ -149,13 +138,17 @@ scale trough highlight {
 	padding-right: 10px;
 }
 
+.music-button:hover {
+	color: $surface2;
+}
+
 .music-cover {
 	background-position: center;
 	background-size: cover;
 	border-radius: 5px;
 	min-height: 25px;
 	min-width: 25px;
-	margin-right: 10px;
+	margin: 0px 10px 0px 5px;
 }
 
 // battery

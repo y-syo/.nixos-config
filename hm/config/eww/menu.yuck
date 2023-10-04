@@ -39,9 +39,9 @@
 
 (defwidget menu-content-upbar []
 	(box
-		:class "menu-content"
+		:class "menu-content-upbar"
 		:orientation "h"
-		:space-evenly true
+		:space-evenly false
 		(menu-user)
 		(menu-power)
 	)
@@ -49,9 +49,9 @@
 
 (defwidget menu-content-info []
 	(box
-		:class "menu-content"
+		:class "menu-content-info"
 		:orientation "v"
-		:space-evenly true
+		:space-evenly false
 		(menu-info-container)
 		(menu-sys-container)
 	)
@@ -59,9 +59,9 @@
 
 (defwidget menu-content-control-panel []
 	(box
-		:class "menu-content"
+		:class "menu-content-control-panel"
 		:orientation "h"
-		:space-evenly true
+		:space-evenly false
 		(menu-control-sliders)
 	)
 )
@@ -77,7 +77,7 @@
 		:class "menu-user-box"
 		:orientation "h"
 		:space-evenly false
-		;; (image)
+		(box	:class "menu-user-profile-picture"	:valign "center"	:style "background-image: url('./img/profile.jpg');")
 		(label	:class "menu-user-label"	:text "yosyo")
 	)
 )
@@ -90,19 +90,19 @@
 		(button
 			:class "menu-power-button sleep"
 			:onclick "echo 'hyprctl dispatch exit'"
-			"s"
+			""
 		)
 		(label	:class "menu-power-separator"	:text "|")
 		(button
 			:class "menu-power-button reboot"
 			:onclick "echo reboot"
-			"r"
+			""
 		)
 		(label	:class "menu-power-separator"	:text "|")
 		(button
 			:class "menu-power-button shutdown"
 			:onclick "echo 'you should shutdown yourself, NOW'"
-			"s"
+			""
 		)
 	)
 )
@@ -141,13 +141,15 @@
 		:class "menu-wifi"
 		:orientation "h"
 		:space-evenly false
-		;; (logo)
+		(label	:class "menu-wifi-logo"	:text "󰖩") 
 		(box
 			:class "menu-wifi-labels"
 			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-wifi-title"	:text "WiFi")
-			(label	:class "menu-wifi-status"	:text "On")
+			:space-evenly false
+			:valign "center"
+			:halign "start"
+			(label	:class "menu-net-title"	:text "WiFi")
+			(box	:orientation "h" :halign "start"	(label	:class "menu-net-status"	:text "On"))
 		)
 	)
 )
@@ -157,13 +159,15 @@
 		:class "menu-bluetooth"
 		:orientation "h"
 		:space-evenly false
-		;; (logo)
+		(label	:class "menu-bluetooth-logo"	:text "󰂯") 
 		(box
 			:class "menu-bluetooth-labels"
 			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-bluetooth-title"	:text "Bluetooth")
-			(label	:class "menu-bluetooth-status"	:text "Off")
+			:space-evenly false
+			:valign "center"
+			:halign "start"
+			(label	:class "menu-net-title"	:text "Bluetooth")
+			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text "Off"))
 		)
 	)
 )
@@ -173,13 +177,14 @@
 		:class "menu-dnd"
 		:orientation "h"
 		:space-evenly false
-		;; (logo)
+		(label	:class "menu-dnd-logo"	:text "")
 		(box
 			:class "menu-dnd-labels"
 			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-dnd-title"	:text "Do Not Disturb")
-			(label	:class "menu-dnd-status"	:text "Off")
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "Do Not Disturb")
+			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text "Off"))
 		)
 	)
 )
@@ -189,13 +194,14 @@
 		:class "menu-power-saving"
 		:orientation "h"
 		:space-evenly false
-		;; (logo)
+		(box	:orientation "h"	:valign "center"	:space-evenly false (label	:class "menu-power-saving-logo"	:text "󱈑"))
 		(box
 			:class "menu-power-saving-labels"
 			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-power-saving-title"	:text "Power Saving")
-			(label	:class "menu-power-saving-status"	:text "Off")
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "Power Saving")
+			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text "Off"))
 		)
 	)
 )
@@ -205,13 +211,14 @@
 		:class "menu-night"
 		:orientation "h"
 		:space-evenly false
-		;; (logo)
+		(box	:orientation "h"	:valign "center"	:space-evenly false	(label	:class "menu-night-logo"	:text ""))
 		(box
 			:class "menu-night-labels"
 			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-night-title"	:text "Night Mode")
-			(label	:class "menu-night-status"	:text "On")
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "Night Mode")
+			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text "On"))
 		)
 	)
 )
@@ -220,20 +227,25 @@
 
 (defwidget menu-sys-container []
 	(box
-		:class "menu-info-container"
+		:class "menu-sys-container"
 		:orientation "v"
-		:space-evenly true
+		:space-evenly false
 		(box
-			:orientation "h"
+			:class "menu-sys-hardware-container"
+			:orientation "v"
 			:space-evenly true
-			(menu-cpu)
-			(menu-ram)
-		)
-		(box
-			:orientation "h"
-			:space-evenly true
-			(menu-gpu-nvidia)
-			(menu-gpu-amd)
+			(box
+				:orientation "h"
+				:space-evenly true
+				(menu-cpu)
+				(menu-ram)
+			)
+			(box
+				:orientation "h"
+				:space-evenly true
+				(menu-gpu-nvidia)
+				(menu-gpu-amd)
+			)
 		)
 		(menu-disk)
 	)
@@ -241,89 +253,86 @@
 
 (defwidget menu-cpu []
 	(box
-		:class "menu-cpu"
-		:orientation "h"
+		:class "menu-cpu menu-sys-progress"
+		:orientation "v"
 		:space-evenly false
-		(circular-progress
-			:class "menu-cpu-progress"
-			:thickness "10"
-			:start-at "0"
-			:clockwise true
-			:value {EWW_CPU.avg}
-		)
 		(box
 			:class "menu-cpu-labels"
-			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-cpu-title"	:text "cpu")
-			(label	:class "menu-cpu-status"	:text "${round(EWW_CPU.avg, 0)} %")
+			:orientation "h"
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "cpu")
+			(label	:class "menu-net-status"	:text "|")
+			(label	:class "menu-net-status"	:text "${round(EWW_CPU.avg, 0)} %")
+		)
+		(progress
+			:class "menu-cpu-progress"
+			:value {EWW_CPU.avg}
 		)
 	)
 )
 
 (defwidget menu-ram []
 	(box
-		:class "menu-ram"
-		:orientation "h"
+		:class "menu-ram menu-sys-progress"
+		:orientation "v"
 		:space-evenly false
-		(circular-progress
-			:class "menu-ram-progress"
-			:thickness "10"
-			:start-at "0"
-			:clockwise true
-			:value {EWW_RAM.used_mem_perc}
-		)
 		(box
-			:class "menu-cpu-labels"
-			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-ram-title"	:text "ram")
-			(label	:class "menu-ram-status"	:text "${round(EWW_RAM.used_mem_perc, 0)} %")
+			:class "menu-ram-labels"
+			:orientation "h"
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "ram")
+			(label	:class "menu-net-status"	:text "|")
+			(label	:class "menu-net-status"	:text "${round(EWW_RAM.used_mem / 1000000000, 0)} Go / ${round(EWW_RAM.total_mem / 1000000000, 0) - 1} Go")
+		)
+		(progress
+			:class "menu-ram-progress"
+			:value {EWW_RAM.used_mem_perc}
 		)
 	)
 )
 
 (defwidget menu-gpu-nvidia []
 	(box
-		:class "menu-gpu-nvidia"
-		:orientation "h"
+		:class "menu-gpu-nvidia menu-sys-progress"
+		:orientation "v"
 		:space-evenly false
-		(circular-progress
-			:class "menu-gpu-nvidia-progress"
-			:thickness "10"
-			:start-at "0"
-			:clockwise true
-			:value {nvidia}
-		)
 		(box
 			:class "menu-gpu-nvidia-labels"
-			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-gpu-nvidia-title"	:text "Nvidia gpu")
-			(label	:class "menu-gpu-nvidia-status"	:text "${nvidia} %")
+			:orientation "h"
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "Nvidia gpu")
+			(label	:class "menu-net-status"	:text "|")
+			(label	:class "menu-net-status"	:text "${nvidia} %")
+		)
+		(progress
+			:class "menu-gpu-nvidia-progress"
+			:value {nvidia}
 		)
 	)
 )
 
 (defwidget menu-gpu-amd []
 	(box
-		:class "menu-gpu-amd"
-		:orientation "h"
+		:class "menu-gpu-amd menu-sys-progress"
+		:orientation "v"
 		:space-evenly false
-		(circular-progress
-			:class "menu-gpu-amd-progress"
-			:thickness "10"
-			:start-at "0"
-			:clockwise true
-			:value {amd}
-		)
 		(box
 			:class "menu-gpu-amd-labels"
-			:orientation "v"
-			:space-evenly true
-			(label	:class "menu-gpu-amd-title"	:text "AMD gpu")
-			(label	:class "menu-gpu-amd-status"	:text "${amd} %")
+			:orientation "h"
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "AMD gpu")
+			(label	:class "menu-net-status"	:text "|")
+			(label	:class "menu-net-status"	:text "${amd} %")
 		)
+		(progress
+			:class "menu-gpu-amd-progress"
+			:value {amd}
+		)
+
 	)
 )
 
@@ -335,10 +344,11 @@
 		(box
 			:class "menu-disk-labels"
 			:orientation "h"
-			:space-evenly true
-			(label	:class "menu-disk-title"	:text "disk")
-			(label	:class "menu-disk-separator"	:text "|")
-			(label	:class "menu-disk-status"	:text "${round(EWW_DISK["/"].used_perc, 1)} %")
+			:space-evenly false
+			:valign "center"
+			(label	:class "menu-net-title"	:text "disk")
+			(label	:class "menu-net-status"	:text "|")
+			(label	:class "menu-net-status"	:text "${round(EWW_DISK["/"].used_perc, 1)} %")
 		)
 		(progress
 			:class "menu-disk-progress"
@@ -356,7 +366,7 @@
 (defwidget menu-control-sliders []
 	(box
 		:class "menu-control-sliders"
-		:orientation "v"
+		:orientation "h"
 		:space-evenly true
 		(menu-slider-volume)
 		(menu-slider-brightness)
@@ -368,11 +378,11 @@
 		:class "menu-slider-volume"
 		:orientation "v"
 		:space-evenly true
-		(label	:class "menu-slider-volume-label"	:text "volume")
+		(box	:orientation "h"	:halign "start" (label	:class "menu-net-title"	:text "volume"))
 		(box
 			:orientation "h"
 			:space-evenly false
-			(label	:class "menu-slider-volume-logo"	:text "o")
+			(label	:class "menu-slider-volume-logo"	:text "󰕾")
 			(scale
 				:class "menu-slider-volume-scale"
 				:min "0"
@@ -389,12 +399,12 @@
 		:class "menu-slider-brightness"
 		:orientation "v"
 		:space-evenly true
-		(label	:class "menu-slider-brightness-label"	:text "brightness")
+		(box	:orientation "h"	:halign "start"	(label	:class "menu-net-title"	:text "brightness"))
 		(box
 			:class "menu-slider-brightness-box"
 			:orientation "h"
 			:space-evenly false
-			(label	:class "menu-slider-brightness-logo"	:text "x")
+			(label	:class "menu-slider-brightness-logo"	:text "")
 			(scale
 				:class "menu-slider-brightness-scale"
 				:value "${br}"
