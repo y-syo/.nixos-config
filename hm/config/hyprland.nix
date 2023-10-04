@@ -38,7 +38,7 @@ workspace = 16, monitor:HDMI-A-1
 
 # Execute your favorite apps at launch
 exec-once = swww init
-# exec-once = eww daemon & eww open bar
+exec-once = eww daemon & eww open bar
 # exec-once = /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=easyeffects-wrapper com.github.wwmm.easyeffects
 # exec-once = swww img -o HDMI-A-1 ${config.stylix.image} & swww img -o eDP-1 ${config.stylix.image}
 
