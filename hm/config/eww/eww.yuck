@@ -18,8 +18,8 @@
 
 
 (defwindow bar
-	:monitor 0
-	:geometry (geometry	:x "0%"	:y "10px"	:width "99%"	:height "24px"	:anchor "top center")
+	:monitor 1
+	:geometry (geometry	:x "0%"	:y "8px"	:width "${1920 - 8 * 2}px"	:height "24px"	:anchor "top center")
 	:stacking "fg"
 	:exclusive true
 	(bar-content)

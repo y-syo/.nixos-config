@@ -169,7 +169,7 @@
     # apps
     discord webcord firefox cinnamon.nemo drawing spotify obs-studio easyeffects qbittorrent libreoffice
     # rice
-    swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default inputs.gross.packages."${pkgs.system}".default
+    swww macchina zsh wofi inputs.hyprsome.packages."${pkgs.system}".default inputs.gross.packages."${pkgs.system}".default gammastep
 
 	];
 

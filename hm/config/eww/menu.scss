@@ -92,10 +92,17 @@
 	padding-left: 10px;
 }
 
+.menu-logo-on {
+	background-color: $lavender;
+}
+
+.menu-logo-off {
+	background-color: $surface2;
+}
+
 .menu-wifi-logo {
 	min-height: 45px;
 	min-width: 40px;
-	background-color: $lavender;
 	color: $black;
 	border-radius: 99px;
 	font-size: 20px;
@@ -147,7 +154,6 @@
 .menu-night-logo {
 	min-height: 45px;
 	min-width: 40px;
-	background-color: $lavender;
 	color: $black;
 	border-radius: 99px;
 	font-size: 20px;

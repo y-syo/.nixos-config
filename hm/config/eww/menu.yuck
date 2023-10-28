@@ -2,9 +2,13 @@
 
 
 
-(deflisten nvidia "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits --loop=1")
-(defpoll amd :interval "1s" :initial-value "0" "cat /sys/class/drm/card1/device/gpu_busy_percent")
-(defpoll br :interval "10s" :initial-value "255" "brightnessctl g -m")
+(deflisten	nvidia		"nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits --loop=1")
+(defpoll	amd		:interval "1s"	:initial-value "0" "cat /sys/class/drm/card1/device/gpu_busy_percent")
+(defpoll	br		:interval "10s"	:initial-value "255" "brightnessctl g -m")
+
+(defpoll	wifi-status	:interval "2s"	"nmcli -f state -t g")
+(defpoll	wifi-name	:interval "2s"	"nmcli -t d | grep wlo1 | awk 'BEGIN { FS = \":\" } ; { print $4 }'")
+(defvar		night-status	false)
 
 
 
@@ -13,7 +17,7 @@
 
 
 (defwindow menu
-	:monitor 0
+	:monitor 1
 	:geometry (geometry	:x "10px"	:y "10px"	:width "10%"	:height "30%"	:anchor "top right")
 	:stacking "fg"
 	:exclusive false
@@ -89,19 +93,19 @@
 		:space-evenly false
 		(button
 			:class "menu-power-button sleep"
-			:onclick "echo 'hyprctl dispatch exit'"
+			:onclick "hyprctl dispatch exit"
 			""
 		)
 		(label	:class "menu-power-separator"	:text "|")
 		(button
 			:class "menu-power-button reboot"
-			:onclick "echo reboot"
+			:onclick "reboot"
 			""
 		)
 		(label	:class "menu-power-separator"	:text "|")
 		(button
 			:class "menu-power-button shutdown"
-			:onclick "echo 'you should shutdown yourself, NOW'"
+			:onclick "shutdown now"
 			""
 		)
 	)
@@ -141,15 +145,15 @@
 		:class "menu-wifi"
 		:orientation "h"
 		:space-evenly false
-		(label	:class "menu-wifi-logo"	:text "󰖩") 
+		(label	:class "menu-wifi-logo ${wifi-status == 'connected' ? 'menu-logo-on' : 'menu-logo-off'}"	:text "󰖩")
 		(box
 			:class "menu-wifi-labels"
 			:orientation "v"
 			:space-evenly false
 			:valign "center"
 			:halign "start"
-			(label	:class "menu-net-title"	:text "WiFi")
-			(box	:orientation "h" :halign "start"	(label	:class "menu-net-status"	:text "On"))
+			(box	:orientation "h" :halign "start"	(label	:class "menu-net-title"	:text "WiFi"))
+			(box	:orientation "h" :halign "start"	(label	:class "menu-net-status"	:text {wifi-name}	:show-truncated true	:limit-width 15))
 		)
 	)
 )
@@ -201,7 +205,7 @@
 			:space-evenly false
 			:valign "center"
 			(label	:class "menu-net-title"	:text "Power Saving")
-			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text "Off"))
+			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text "Unavailable"))
 		)
 	)
 )
@@ -211,14 +215,16 @@
 		:class "menu-night"
 		:orientation "h"
 		:space-evenly false
-		(box	:orientation "h"	:valign "center"	:space-evenly false	(label	:class "menu-night-logo"	:text ""))
+		(box	:orientation "h"	:valign "center"	:space-evenly false
+			(button	:class "menu-night-logo ${night-status ? 'menu-logo-on' : 'menu-logo-off'}"	:onclick {!night-status ? "${EWW_CMD} update night-status=true && gammastep -O 4500 &" : "${EWW_CMD} update night-status=false && pkill gammastep"}	"")
+		)
 		(box
 			:class "menu-night-labels"
 			:orientation "v"
 			:space-evenly false
 			:valign "center"
 			(label	:class "menu-net-title"	:text "Night Mode")
-			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text "On"))
+			(box	:orientation "h"	:halign "start"	(label	:class "menu-net-status"	:text {night-status ? "On": "Off"}))
 		)
 	)
 )

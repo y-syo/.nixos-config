@@ -7,7 +7,7 @@
 	shellAliases = {
 		re = "sudo nixos-rebuild switch --impure";
 		ls = "lsd";
-        grep = "grep --color=auto";
+		grep = "grep --color=auto";
 		kys = "shutdown now";
 		c = "gcc -Wall -Werror -Wextra";
 	};
