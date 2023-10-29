@@ -35,7 +35,7 @@ monitor_event() {
 applist() {
   ws="$1"
 
-  apps=$(hyprctl -j clients | jaq -jr '.[] | select(.workspace.id == '"$ws"') | .title + "\\n"')
+  apps=$(hyprctl -j clients | jaq -jr '.[] | select(.workspace.id == '"$ws"') | .initialTitle + "\\n"')
   echo -En "${apps%"\n"}"
 }
 
@@ -43,8 +43,8 @@ applist() {
 generate() {
   echo -n '{"latest": '"$latest"', "workspaces": ['
 
-  for i in {11..16}; do
-	  echo -n ''"$([ "$i" -eq 11 ] || echo ,)" '{"number": '"$i"', "monitor": "'"$(status "$i")"'", "focused": '"$([ "$focusedws" = "$i" ] && echo "true" || echo "false")"', "applist": "'$(applist "$i")'" }' #, "tooltip": "'$(applist "$i")'" }'
+  for i in {1..6}; do
+	  echo -n ''"$([ "$i" -eq 1 ] || echo ,)" '{"number": '"$i"', "monitor": "'"$(status "$i")"'", "focused": '"$([ "$focusedws" = "$i" ] && echo "true" || echo "false")"', "applist": "'$(applist "$i")'" }' #, "tooltip": "'$(applist "$i")'" }'
   done
 
 #  for i in {11..16}; do

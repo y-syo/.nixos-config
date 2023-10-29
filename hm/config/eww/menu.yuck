@@ -7,6 +7,7 @@
 (defpoll	br		:interval "10s"	:initial-value "255" "brightnessctl g -m")
 
 (defpoll	wifi-status	:interval "2s"	"nmcli -f state -t g")
+(defpoll	eth-status	:interval "2s"	"nmcli -t d | grep ethernet | awk 'BEGIN { FS = \":\" } ; { print $3 }'")
 (defpoll	wifi-name	:interval "2s"	"nmcli -t d | grep wlo1 | awk 'BEGIN { FS = \":\" } ; { print $4 }'")
 (defvar		night-status	false)
 
@@ -17,7 +18,7 @@
 
 
 (defwindow menu
-	:monitor 1
+	:monitor 0
 	:geometry (geometry	:x "10px"	:y "10px"	:width "10%"	:height "30%"	:anchor "top right")
 	:stacking "fg"
 	:exclusive false
@@ -77,12 +78,14 @@
 
 
 (defwidget menu-user []
+	(button	:onclick {menu-profile ? "${EWW_CMD} update menu-profile=false" : "${EWW_CMD} update menu-profile=true"}
 	(box
 		:class "menu-user-box"
 		:orientation "h"
 		:space-evenly false
-		(box	:class "menu-user-profile-picture"	:valign "center"	:style "background-image: url('./img/profile.jpg');")
-		(label	:class "menu-user-label"	:text "yosyo")
+		(box	:class "menu-user-profile-picture"	:valign "center"	:style {menu-profile ? "background-image: url('./img/profile.jpg');" : "background-image: url('./img/profile2.png');"})
+		(label	:class "menu-user-label"	:text {menu-profile ? "yosyo" : "Malik Moussouni"})
+	)
 	)
 )
 
@@ -145,7 +148,7 @@
 		:class "menu-wifi"
 		:orientation "h"
 		:space-evenly false
-		(label	:class "menu-wifi-logo ${wifi-status == 'connected' ? 'menu-logo-on' : 'menu-logo-off'}"	:text "󰖩")
+		(label	:class "menu-wifi-logo ${eth-status == 'connected' ? "eth-on" : "eth-off"} ${wifi-status == 'connected' ? 'menu-logo-on' : 'menu-logo-off'}"	:text {eth-status == 'connected' ? "󰈀" : "󰖩"})
 		(box
 			:class "menu-wifi-labels"
 			:orientation "v"
@@ -153,7 +156,7 @@
 			:valign "center"
 			:halign "start"
 			(box	:orientation "h" :halign "start"	(label	:class "menu-net-title"	:text "WiFi"))
-			(box	:orientation "h" :halign "start"	(label	:class "menu-net-status"	:text {wifi-name}	:show-truncated true	:limit-width 15))
+			(box	:orientation "h" :halign "start"	(label	:class "menu-net-status"	:text {eth-status == "connected" ? "Ethernet" : wifi-name}	:show-truncated true	:limit-width 15))
 		)
 	)
 )

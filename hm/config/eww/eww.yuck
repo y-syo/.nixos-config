@@ -10,6 +10,7 @@
 (defvar mc_reveal false)
 (deflisten hyprland "scripts/hyprland")
 (deflisten music "gross music")
+(defvar menu-profile true)
 
 
 
@@ -18,7 +19,7 @@
 
 
 (defwindow bar
-	:monitor 1
+	:monitor 0
 	:geometry (geometry	:x "0%"	:y "8px"	:width "${1920 - 8 * 2}px"	:height "24px"	:anchor "top center")
 	:stacking "fg"
 	:exclusive true
@@ -102,7 +103,7 @@
 			(for ws in {hyprland.workspaces}
 				(button
 				:onclick "hyprsome workspace ${ws.number}"
-				:class "ws ${ws.focused == true ? "focused" : ""} ${ws.number == hyprland.latest ? "latest" : ""} ${ws.monitor != 0 ? "active" : "inactive"} ${ws.applist}"
+				:class "ws ${ws.focused == true ? "focused" : ""} ${ws.number == hyprland.latest ? "latest" : ""} ${ws.applist != "" ? "active" : "inactive"} ${ws.applist}"
 				)
 			)
 		)
@@ -186,9 +187,9 @@
 						:style "background-image: url(\"${music.cover}\");"
 					)
 					(label	:class "music-label"	:text "${music.artist} - ${music.title}")
-					(button	:class "music-button"	:onclick "playerctl previous"	"󰒮")
-					(button	:class "music-button"	:onclick "playerctl play-pause"	{music.status != "Playing" ? "󰐊" : "󰏤"})
-					(button	:class "music-button"	:onclick "playerctl next"	"󰒭")
+					(button	:class "music-button"	:onclick "playerctl -p spotify previous"	"󰒮")
+					(button	:class "music-button"	:onclick "playerctl -p spotify play-pause"	{music.status != "Playing" ? "󰐊" : "󰏤"})
+					(button	:class "music-button"	:onclick "playerctl -p spotify next"	"󰒭")
 				)
 			)
 		)
