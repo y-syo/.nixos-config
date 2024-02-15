@@ -13,9 +13,11 @@
     stylix.url = "github:danth/stylix/release-23.11";
 
     gross.url = "github:fufexan/gross";
+
+    ags.url = "github:Aylur/ags";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, gross, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, gross, ags, ... }: {
     nixosConfigurations = {
       T470 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
