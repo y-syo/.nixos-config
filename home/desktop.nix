@@ -2,7 +2,7 @@
 
 {
 	imports = [
-	  input.ags.homeManagerModules.default
+	  inputs.ags.homeManagerModules.default
 	];
 
     programs.ags = {
