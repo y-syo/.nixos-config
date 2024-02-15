@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./dev.nix
+
     ./conf/stylix.nix
     ./conf/kitty.nix
     ./conf/zsh.nix
