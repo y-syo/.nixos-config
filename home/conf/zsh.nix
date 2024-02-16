@@ -28,8 +28,15 @@
       autoload -Uz vcs_info
 
       zstyle ':vcs_info:git*' formats "%F{yellow}( %b)%f %F{blue}%r%f "
-      precmd() {vcs_info}
       setopt prompt_subst
+	  precmd() {
+	    vcs_info
+	    LOGO="󱄅 "
+	    if [ "$DIRENV_DIR" = "-/home/yosyo/Documents/Python" ]; then
+		  LOGO=" "
+	    fi
+	    PROMPT="%F{magenta}$LOGO%n%f | %F{red}/%1~%f ❯ "
+      }
       PROMPT='%F{magenta} %n%f | %F{red}/%1~%f ❯ '
       RPROMPT=\$vcs_info_msg_0_
       '';
