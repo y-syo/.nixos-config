@@ -20,6 +20,9 @@
       autoload -Uz compinit
       compinit
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
+
+      eval "$(direnv hook zsh)"
+
       #Prompt
       autoload -Uz vcs_info
 
