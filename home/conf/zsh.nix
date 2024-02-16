@@ -21,6 +21,7 @@
       compinit
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
 
+      export DIRENV_LOG_FORMAT=
       eval "$(direnv hook zsh)"
 
       #Prompt
