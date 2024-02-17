@@ -34,7 +34,9 @@
 	    LOGO="󱄅 "
 	    if [ "$DIRENV_DIR" = "-/home/yosyo/Documents/Python" ]; then
 		  LOGO=" "
-	    fi
+	    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/MacroLibX" ]; then
+		  LOGO="🗿 "
+		fi
 	    PROMPT="%F{magenta}$LOGO%n%f | %F{red}/%1~%f ❯ "
       }
       PROMPT='%F{magenta} %n%f | %F{red}/%1~%f ❯ '

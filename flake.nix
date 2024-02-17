@@ -20,6 +20,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: {
+	packages = nixpkgs.lib.genAttrs [ "x86_64-linux" ] (system: import ./pkgs nixpkgs.legacyPackages.${system});
     nixosConfigurations = {
       T470 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
