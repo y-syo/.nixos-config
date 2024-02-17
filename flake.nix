@@ -19,12 +19,18 @@
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
-	packages = nixpkgs.lib.genAttrs [ "x86_64-linux" ] (system: import ./pkgs nixpkgs.legacyPackages.${system});
+  outputs = inputs@{ self, nixpkgs, ... }:
+  let
+    inherit (self) outputs;
+    systems = [ "x86_64-linux" ];
+    forSystems = nixpkgs.lib.genAttrs systems;
+  in
+  {
+	packages = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     nixosConfigurations = {
       T470 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/T470/default.nix ];
       };
     };
