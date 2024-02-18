@@ -12,7 +12,12 @@
       ./env.nix
     ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+	  (final: _prev: import ../../pkgs { pkgs = final; })
+	];
+  };
 
   programs = {
     hyprland = {

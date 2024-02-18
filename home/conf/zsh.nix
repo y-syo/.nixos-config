@@ -36,6 +36,10 @@
 		  LOGO=" "
 	    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/MacroLibX" ]; then
 		  LOGO="🗿 "
+		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/C" ]; then
+		  LOGO=" "
+		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/C++" ]; then
+		  LOGO=" "
 		fi
 	    PROMPT="%F{magenta}$LOGO%n%f | %F{red}/%1~%f ❯ "
       }
