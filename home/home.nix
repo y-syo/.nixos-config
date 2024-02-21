@@ -21,7 +21,7 @@
     git = {
       enable = true;
       userName = "y-syo";
-      userEmail = "mmoussou@student.42angouleme.fr";
+      userEmail = "mamousso@student.42angouleme.fr";
     };
     gh.enable = true;
   };
