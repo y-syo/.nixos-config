@@ -35,7 +35,7 @@
 	    if [ "$DIRENV_DIR" = "-/home/yosyo/Documents/Python" ]; then
 		  LOGO=" "
 	    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/MacroLibX" ]; then
-		  LOGO="🗿 "
+		  LOGO="🗿"
 		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/C" ]; then
 		  LOGO=" "
 		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/C++" ]; then

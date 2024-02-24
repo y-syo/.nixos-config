@@ -13,7 +13,11 @@
     ];
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+	  allowUnfree = true;
+	  packageOverrides = pkgs: { vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+	};
     overlays = [
 	  (final: _prev: import ../../pkgs { pkgs = final; })
 	];
@@ -31,6 +35,26 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+	extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
+  security.wrappers.sunshine = {
+      owner = "root";
+      group = "root";
+      capabilities = "cap_sys_admin+p";
+      source = "${pkgs.sunshine}/bin/sunshine";
+  };
+  systemd.user.services.sunshine = {
+      description = "sunshine";
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+      ExecStart = "${config.security.wrapperDir}/sunshine";
+    };
   };
 
   users.users.yosyo = {
@@ -47,7 +71,7 @@
 
     grim slurp wl-clipboard playerctl brightnessctl gammastep wayland wayland-protocols xdg-utils
 
-    neovim firefox cinnamon.nemo drawing spotify obs-studio qbittorrent inputs.unstablepkgs.legacyPackages."${pkgs.system}".vesktop
+    neovim firefox cinnamon.nemo drawing spotify obs-studio qbittorrent inputs.unstablepkgs.legacyPackages."${pkgs.system}".vesktop signal-desktop sunshine
 
     swww tofi
   ];
