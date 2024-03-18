@@ -28,4 +28,11 @@
 	};
 	Install.WantedBy = [ "graphical-session.target" ];
   };
+
+  xdg.configFile = {
+    "tofi" = {
+      source = config.lib.file.mkOutOfStoreSymlink ./tofi;
+      target = tofi;
+    };
+  };
 }

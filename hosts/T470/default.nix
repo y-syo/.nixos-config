@@ -12,6 +12,8 @@
       ./env.nix
     ];
 
+  virtualisation.docker.enable = true;
+
   nixpkgs = {
     config = {
 	  allowUnfree = true;
@@ -60,7 +62,7 @@
   users.users.yosyo = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" "input" "seat" "networkmanager" ];
+    extraGroups = [ "wheel" "audio" "video" "input" "seat" "networkmanager" "docker" ];
     # packages = with pkgs; [];
   };
 

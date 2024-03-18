@@ -7,7 +7,7 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
 	owner = "y-syo";
 	repo = "pogit";
-	rev = "0b04dac5ea92c3bd9b52bd21800d3fdd51e92b1b";
-	hash = "sha256-jRQJHWncmza6pEu9sX6gNdct3YzUD0yJ+sTJx8RIsT4=";
+	rev = "4ea8d7d26195de39bdee31158cd2de2879d2f2bf";
+	hash = "sha256-jrK8IWooV7+Hic32G6BgCtxoEqlXPe7vP1cH/HTijjo=";
   };
 }
