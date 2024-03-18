@@ -7,7 +7,7 @@
 
   programs.ags = {
     enable = true;
-    configDir = conf/desktop/ags;
+    configDir = ./conf/desktop/ags;
     extraPackages = with pkgs; [
       bash
       dart-sass
@@ -30,9 +30,9 @@
   };
 
   xdg.configFile = {
-    "tofi" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./tofi;
-      target = tofi;
+    tofi = {
+      source = config.lib.file.mkOutOfStoreSymlink ./conf/desktop/tofi;
+      target = "tofi";
     };
   };
 }
