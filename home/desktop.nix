@@ -5,15 +5,20 @@
     inputs.ags.homeManagerModules.default
   ];
 
-  programs.ags = {
-    enable = true;
-    configDir = ./conf/desktop/ags;
-    extraPackages = with pkgs; [
-      bash
-      dart-sass
-      coreutils
-      jq
-    ];
+  programs = {
+    swaylock = {
+	  enable = true;
+	};
+    ags = {
+      enable = true;
+      configDir = ./conf/desktop/ags;
+      extraPackages = with pkgs; [
+        bash
+        dart-sass
+        coreutils
+        jq
+      ];
+	};
   };
 
   systemd.user.services.ags = {

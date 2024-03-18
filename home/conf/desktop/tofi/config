@@ -3,9 +3,9 @@ height = 100%
 
 prompt-text = "> "
 
-text-color = #6e6e8f
-selection-color = #DCD7BA
-input-color = #D27E99
+text-color = #b8b5b1
+selection-color = #de3c3c
+input-color = #ede0d1
 
 border-width = 0
 outline-width = 0
@@ -15,7 +15,7 @@ padding-top = 20%
 result-spacing = 15
 
 num-results = 10
-font = FiraCode Nerd Font
-background-color = #16161dee
+font = JetBrainsMono Nerd Font
+background-color = #050505
 
 terminal = kitty
