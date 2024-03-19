@@ -16,6 +16,6 @@ result-spacing = 15
 
 num-results = 10
 font = JetBrainsMono Nerd Font
-background-color = #050505
+background-color = #050505cf
 
 terminal = kitty
