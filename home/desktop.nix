@@ -11,12 +11,14 @@
 	};
     ags = {
       enable = true;
-      configDir = ./conf/desktop/ags;
-      extraPackages = with pkgs; [
+      # configDir = ./conf/desktop/ags;
+	  configDir = config.lib.file.mkOutOfStoreSymlink "/home/yosyo/.nixos/home/conf/desktop/ags";
+	  extraPackages = with pkgs; [
         bash
         dart-sass
         coreutils
         jq
+		pulseaudio
       ];
 	};
   };

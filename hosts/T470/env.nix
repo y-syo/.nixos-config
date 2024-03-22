@@ -1,6 +1,19 @@
 { pkgs, lib, config, inputs, outputs, ... }:
 
 {
+  environment = {
+    sessionVariables = {
+	  NIXOS_OZONE_WL = "1";
+	  CLUTTER_BACKEND = "wayland";
+	  KITTY_ENABLE_WAYLAND = "1";
+	  MOZ_ENABLE_WAYLAND = "1";
+	  MOZ_WEBRENDER = "1";
+	  GDK_BACKEND = "wayland";
+	  WLR_NO_HARDWARE_CURSOR = "1";
+	};
+  };
+
+
   time.timeZone = "Europe/Paris";
 
   i18n = {
