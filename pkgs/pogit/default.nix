@@ -8,6 +8,6 @@ python3Packages.buildPythonApplication rec {
 	owner = "y-syo";
 	repo = "pogit";
 	rev = "1367f7d10d93bb6853e89c806e78ae5ff114b49b";
-	hash = "sha256-MPKVxFxeCmGziK2sYPs8lVVUfCIGOUg/UAR3sCUrIAM=";
+	hash = "sha256-FEmjZBRBHMx5SCL5qSKddClQGPOACMrSjxw7qRKK/3o=";
   };
 }
