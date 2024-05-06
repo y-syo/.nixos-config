@@ -33,21 +33,21 @@ base0D = "4a8ae0"; # blue
 base0E = "d45db9"; # purple
 base0F = "7a7a7a"; # grey
 		};
-		targets.gtk.extraCss = ''
-@define-color accent_color #de3c3c;
-@define-color accent_bg_color #de3c3c;
-'';
-	  opacity.terminal = 0.8;
+#		targets.gtk.extraCss = ''
+#@define-color accent_color #de3c3c;
+#@define-color accent_bg_color #de3c3c;
+#'';
+		opacity.terminal = 0.8;
 
-	  fonts = {
-	    monospace = {
-		  name = "JetBrainsMono-Regular";
-		  package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-	  };
+		fonts = {
+			monospace = {
+				name = "JetBrainsMono-Regular";
+				package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+			};
 
-	  serif = config.stylix.fonts.monospace;
+			serif = config.stylix.fonts.monospace;
 
-      sansSerif = config.stylix.fonts.serif;
-    };
-  };
+			sansSerif = config.stylix.fonts.serif;
+		};
+	};
 }
