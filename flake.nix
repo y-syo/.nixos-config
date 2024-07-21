@@ -4,15 +4,15 @@
   inputs = {
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
 	unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    stylix.url = "github:danth/stylix/release-23.11";
+    stylix.url = "github:danth/stylix/release-24.05";
 
     gross.url = "github:fufexan/gross";
 

@@ -8,6 +8,7 @@
     ./conf/stylix.nix
     ./conf/kitty.nix
     ./conf/zsh.nix
+	./conf/tofi.nix
   ];
 
   nixpkgs = {
@@ -28,6 +29,14 @@
 
   home.username = "yosyo";
   home.homeDirectory = "/home/yosyo";
+
+  home.packages = with pkgs; [
+	swww
+
+	discord firefox neovim cinnamon.nemo
+
+	drawing spotify obs-studio qbittorrent signal-desktop
+  ];
 
   programs.home-manager.enable = true;
 

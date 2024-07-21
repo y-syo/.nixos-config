@@ -13,19 +13,21 @@
       wireplumber.enable = true;
     };
     xserver = {
-      layout = "us";
-      xkbVariant = "intl";
-      libinput = {
-        enable = true;
-        mouse.accelProfile = "flat";
-      };
+	  xkb = {
+        layout = "us";
+        variant = "intl";
+	  };
+    };
+	libinput = {
+      enable = true;
+      mouse.accelProfile = "flat";
     };
     openssh.enable = true;
     fstrim.enable = true;
 	avahi = {
 	  enable = true;
 	  reflector = true;
-	  nssmdns = true;
+	  nssmdns4 = true;
 	  publish = {
 	    enable = true;
 		addresses = true;

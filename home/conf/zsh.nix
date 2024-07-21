@@ -15,6 +15,7 @@
       grep = "grep --color=auto";
       kys = "shutdown now";
       c = "gcc -Wall -Werror -Wextra";
+	  val = "valgrind --leak-check=full --track-fds=all --suppressions=minishell.supp --show-leak-kinds=all --trace-children=yes ";
     };
     initExtra = ''
       autoload -Uz compinit
@@ -32,13 +33,15 @@
 	  precmd() {
 	    vcs_info
 	    LOGO="󱄅 "
-	    if [ "$DIRENV_DIR" = "-/home/yosyo/Documents/Python" ]; then
+	    if [ "$DIRENV_DIR" = "-/home/yosyo/Documents/python" ]; then
 		  LOGO=" "
-	    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/MacroLibX" ]; then
+	    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/python-web" ]; then
+		  LOGO="󰖟 "
+		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/macrolibx" ]; then
 		  LOGO="🗿"
-		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/C" ]; then
+		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/c" ]; then
 		  LOGO=" "
-		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/C++" ]; then
+		elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/c++" ]; then
 		  LOGO=" "
 		fi
 	    PROMPT="%F{magenta}$LOGO%n%f | %F{red}/%1~%f ❯ "

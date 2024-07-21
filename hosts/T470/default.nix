@@ -77,9 +77,7 @@
 
     grim slurp wl-clipboard playerctl brightnessctl gammastep wayland wayland-protocols xdg-utils
 
-    neovim firefox cinnamon.nemo drawing spotify obs-studio qbittorrent inputs.unstablepkgs.legacyPackages."${pkgs.system}".vesktop signal-desktop sunshine
-
-    swww tofi
+    inputs.unstablepkgs.legacyPackages."${pkgs.system}".vesktop sunshine
   ];
 
   nix = {

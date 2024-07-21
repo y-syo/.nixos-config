@@ -6,38 +6,18 @@
 	];
 
 	stylix = {
+		enable = true;
 		image = pkgs.fetchurl {
       		url = "https://image.api.playstation.com/vulcan/ap/rnd/202109/1700/08dIur063wTrzgcQOd3lBC7l.png";
       		sha256 = "sha256-ohcWmrHXDfiE9sVd4uL3W4cMfnBCnE52+ofPzkqK8aE=";
-			# url = "https://cdn.discordapp.com/emojis/991440972259000461.gif";
-			# sha256 = "sha256-sYWYB0r2tabk97CMxzkaYrEylsBg9QGCLsPO1L+t4Q8=";
 		};
 		polarity = "dark";
-		base16Scheme = {
-          scheme = "Cute";
-author = "y-syo";
-base00 = "050505"; # ----
-base01 = "2b2b2b"; # ---
-base02 = "606060"; # --
-base03 = "8d8d8d"; # -
-base04 = "b8b5b1"; # +
-base05 = "d2c7bb"; # ++
-base06 = "ede0d1"; # +++
-base07 = "fff0e0"; # ++++
-base08 = "de3c3c"; # red
-base09 = "ed9138"; # orange
-base0A = "e6ce49"; # yellow
-base0B = "97b735"; # green
-base0C = "6accbb"; # cyan
-base0D = "4a8ae0"; # blue
-base0E = "d45db9"; # purple
-base0F = "7a7a7a"; # grey
+		opacity = {
+			applications = 1.0;
+			desktop = 1.0;
+			popups = 1.0;
+			terminal = 0.8;
 		};
-#		targets.gtk.extraCss = ''
-#@define-color accent_color #de3c3c;
-#@define-color accent_bg_color #de3c3c;
-#'';
-		opacity.terminal = 0.8;
 
 		fonts = {
 			monospace = {
@@ -49,5 +29,29 @@ base0F = "7a7a7a"; # grey
 
 			sansSerif = config.stylix.fonts.serif;
 		};
+
+		base16Scheme = {
+			base00 = "#171B24";
+			base01 = "#1F2430";
+			base02 = "#242936";
+			base03 = "#707A8C";
+			base04 = "#8A9199";
+			base05 = "#CCCAC2";
+			base06 = "#D9D7CE";
+			base07 = "#F3F4F5";
+			base08 = "#F28779";
+			base09 = "#FFAD66";
+			base0A = "#FFD173";
+			base0B = "#D5FF80";
+			base0C = "#95E6CB";
+			base0D = "#5CCFE6";
+			base0E = "#D4BFFF";
+			base0F = "#F29E74";
+		};
+		targets.gtk.extraCss = ''
+@define-color accent_color #F28779;
+@define-color accent_bg_color #F28779;
+'';
+
 	};
 }
