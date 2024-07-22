@@ -9,6 +9,7 @@
     ./conf/kitty.nix
     ./conf/zsh.nix
 	./conf/tofi.nix
+	./conf/hyprland.nix
   ];
 
   nixpkgs = {
