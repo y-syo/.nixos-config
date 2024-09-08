@@ -8,7 +8,7 @@
 		settings = {
 			exec-once = "swww init";
 
-			monitor = "eDP-1,1920x1080@60,0x0,1";
+			monitor = "eDP-1,1920x1080@144,0x0,1";
 
 			env = "XCURSOR_SIZE,24";
 
@@ -28,7 +28,7 @@
 				gaps_in = "4";
 				gaps_out = "8";
 				border_size = "2";
-				"col.active_border"  = lib.mkForce "rgba(f28779ff)";
+				"col.active_border"  = lib.mkForce "rgba(AC4142ff)";
 				"col.inactive_border" = lib.mkForce "rgba(2b2b2b00)";
 				layout = "dwindle";
 				allow_tearing = "false";
@@ -48,18 +48,18 @@
 			animations = {
 				enabled = "yes";
 				bezier = [
-				"myBezier, 0.05, 0.9, 0.1, 1, 1.05"
+				"myBezier, 0.05, 0.9, 0.1, 1.05"
 				"overshot, .29, .09, 0, 1"
 				];
-				animations = [
+			};
+			animation = [
 				"windows, 1, 3, myBezier"
 				"windowsOut, 1, 3, default, popin 80%"
 				"border, 1, 3, default"
 				"borderangle, 1, 3, default"
 				"fade, 1, 3, default"
 				"workspaces, 1, 3, overshot"
-				];
-			};
+			];
 
 			dwindle = {
 				pseudotile = "yes";
@@ -68,12 +68,16 @@
 
 			gestures.workspace_swipe = "on";
 
-			misc.force_default_wallpaper = "-1";
+			misc = {
+				force_default_wallpaper = "-1";
+				focus_on_activate = "true";
+				initial_workspace_tracking = "2";
+			};
 
 			"$mainMod" = "SUPER";
 
 			bind = [
-			"$mainMod, Return, exec, kitty -1"
+			"$mainMod, Return, exec, kitty"
 			"$mainMod, W, killactive"
 			"$mainMod, M, exit"
 			"$mainMod, E, exec, nemo"

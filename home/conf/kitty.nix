@@ -7,6 +7,7 @@
 	  "KITTY_ENABLE_WAYLAND" = "1";
 	};
 	settings = {
+	  font_family = "JetBrainsMono Nerd Font Mono";
 	  window_padding_width = 10;
 	  window_padding_height = 10;
 	  tab_bar_min_tabs = 1;

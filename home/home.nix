@@ -4,12 +4,11 @@
   imports = [
     ./dev.nix
 	./desktop.nix
-
     ./conf/stylix.nix
     ./conf/kitty.nix
     ./conf/zsh.nix
 	./conf/tofi.nix
-	./conf/hyprland.nix
+ 	./conf/hyprland.nix
   ];
 
   nixpkgs = {
@@ -32,11 +31,13 @@
   home.homeDirectory = "/home/yosyo";
 
   home.packages = with pkgs; [
+	dconf
+
 	swww
 
-	discord firefox neovim cinnamon.nemo
+	firefox neovim cinnamon.nemo
 
-	drawing spotify obs-studio qbittorrent signal-desktop
+	drawing spotify qbittorrent signal-desktop vesktop
   ];
 
   programs.home-manager.enable = true;
