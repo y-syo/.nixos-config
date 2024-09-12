@@ -14,9 +14,14 @@
 
     stylix.url = "github:danth/stylix/release-24.05";
 
-    #gross.url = "github:fufexan/gross";
+	#gross.url = "github:fufexan/gross";
 
 	fabric.url = "github:Fabric-Development/fabric/rewrite";
+
+	pogit = {
+		url = "github:y-syo/pogit";
+		inputs.nixpkgs.follows = "nixpkgs";
+	};
 
   };
 

@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  pogit = pkgs.callPackage ./pogit { };
+  #pogit = pkgs.callPackage ./pogit { };
 }
