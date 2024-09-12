@@ -45,7 +45,7 @@
 	    enable = true;
 		# finegrained = true;
       };
-      package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.production;
+      package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       nvidiaSettings = false;
     };

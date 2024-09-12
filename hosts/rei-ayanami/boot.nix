@@ -7,7 +7,7 @@
   	initrd = {
 		availableKernelModules = [ "nvme" "xhci_pci" "uas" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
   	};
-	kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+	kernelPackages = pkgs.unstable.linuxKernel.packages.linux_xanmod_latest;
 	kernelParams = [ "nvidia-drm.fbdev=1" ];
 	kernelModules = [ "kvm-amd"
 			  "uinput"

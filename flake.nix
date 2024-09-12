@@ -25,8 +25,14 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }:
+  outputs = inputs@{ self, nixpkgs, unstablepkgs, ... }:
   let
+	unstableOverlay = final: prev: {
+	  unstable = import unstablepkgs {
+		system = "x86_64-linux";
+		config.allowUnfree = true;
+	  };
+    };
     inherit (self) outputs;
     systems = [ "x86_64-linux" ];
     forSystems = nixpkgs.lib.genAttrs systems;
@@ -42,7 +48,15 @@
       rei-ayanami = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/rei-ayanami/default.nix ];
+        modules = [
+		({
+          nixpkgs = {
+            overlays = [ unstableOverlay ];
+            config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
+          };
+        })
+			./hosts/rei-ayanami/default.nix
+		];
       };
     };
   };
