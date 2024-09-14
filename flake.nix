@@ -18,6 +18,11 @@
 
 	fabric.url = "github:Fabric-Development/fabric/rewrite";
 
+	nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 	pogit = {
 		url = "github:y-syo/pogit";
 		inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +30,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, unstablepkgs, ... }:
+  outputs = inputs@{ self, nixpkgs, unstablepkgs, nixos-cosmic, ... }:
   let
 	unstableOverlay = final: prev: {
 	  unstable = import unstablepkgs {
@@ -49,12 +54,19 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs outputs; };
         modules = [
+		{
+		  nix.settings = {
+            extra-substituters = [ "https://cosmic.cachix.org/" "https://ezkea.cachix.org" ];
+			extra-trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+          };
+		}
 		({
           nixpkgs = {
             overlays = [ unstableOverlay ];
             config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
           };
         })
+			nixos-cosmic.nixosModules.default
 			./hosts/rei-ayanami/default.nix
 		];
       };

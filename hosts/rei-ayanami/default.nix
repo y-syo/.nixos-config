@@ -12,6 +12,13 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
+# ---------------------------- TESTING -------------------------
+
+  services.desktopManager.cosmic.enable = true;
+  #services.displayManager.cosmic-greeter.enable = true;
+
+# --------------------------------------------------------------
+
   virtualisation.docker.enable = true;
 
   nixpkgs = {
@@ -37,6 +44,7 @@
 
   security = {
     pam.services.swaylock = {};
+	polkit.enable = true;
   };
 
   users.users.yosyo = {

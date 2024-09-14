@@ -19,6 +19,11 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+	fileSystems."/home/yosyo/data" =
+	{ device = "/dev/disk/by-uuid/a5b89ad3-8179-403a-8b94-e8067f3a1688";
+	  fsType = "ext4";
+	};
+
   swapDevices = [ ];
 
   networking.useDHCP = lib.mkDefault true;
