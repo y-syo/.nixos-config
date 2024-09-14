@@ -12,13 +12,6 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
-# ---------------------------- TESTING -------------------------
-
-  services.desktopManager.cosmic.enable = true;
-  #services.displayManager.cosmic-greeter.enable = true;
-
-# --------------------------------------------------------------
-
   virtualisation.docker.enable = true;
 
   nixpkgs = {
@@ -32,7 +25,10 @@
 
   programs = {
     steam.enable = true;
-    hyprland.enable = true;
+    sway = {
+	  enable = true;
+	  package = pkgs.swayfx;
+	};
     zsh.enable = true;
   };
 

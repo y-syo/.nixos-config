@@ -37,12 +37,12 @@
       open = false;
       prime = {
         # allowExternalGpu = false;
-	    sync.enable = false;
-	    # reverseSync.enable = false;
-	    #offload = {
-	    #  enable = true;
-	    #  enableOffloadCmd = true;
-	    # };
+	    #sync.enable = true;
+	    #reverseSync.enable = true;
+	    offload = {
+	      enable = true;
+	      enableOffloadCmd = true;
+	    };
 	    nvidiaBusId = "PCI:1:0:0";
 	    amdgpuBusId = "PCI:7:0:0";
 	  };

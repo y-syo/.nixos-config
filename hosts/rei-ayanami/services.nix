@@ -5,6 +5,7 @@
 #	udev.extraRules = ''
 #      KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
 #    '';
+	gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;

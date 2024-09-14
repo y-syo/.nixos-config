@@ -28,6 +28,11 @@
 		inputs.nixpkgs.follows = "nixpkgs";
 	};
 
+	sh-koh = {
+		url = "github:sh-koh/nixos-config";
+		inputs.nixpkgs.follows = "nixpkgs";
+	};
+
   };
 
   outputs = inputs@{ self, nixpkgs, unstablepkgs, nixos-cosmic, ... }:
