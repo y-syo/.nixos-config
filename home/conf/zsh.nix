@@ -11,6 +11,9 @@
       vim = "nvim";
       l = "ls -lA --color=auto";
       ls = "ls -A --color=auto";
+	  cl = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	  clr = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	  clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
       re = "sudo nixos-rebuild switch";
       grep = "grep --color=auto";
       kys = "shutdown now";

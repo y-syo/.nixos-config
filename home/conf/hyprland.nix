@@ -14,10 +14,14 @@
 			exec-once = [
 				"${pkgs.systemd}/bin/systemctl --user import-environment PATH"
 				"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
-				"swww init"
+				"${pkgs.swww}/bin/swww init"
+				"${pkgs.waybar}/bin/waybar"
 	        ];
 
-			monitor = "eDP-1,1920x1080@144,0x0,1";
+			monitor = [
+				"eDP-1,1920x1080@144,0x0,1"
+				"HDMI-A-1,1920x1080@74.99,auto,1"
+			];
 
 			workspace = [
 				"1, monitor:eDP-1, default:true"
@@ -42,7 +46,7 @@
 				gaps_in = "4";
 				gaps_out = "8";
 				border_size = "2";
-				"col.active_border"  = lib.mkForce "rgba(AC4142ff)";
+				"col.active_border"  = lib.mkForce "rgba(f28779ff)";
 				"col.inactive_border" = lib.mkForce "rgba(2b2b2b00)";
 				layout = "dwindle";
 				allow_tearing = "false";
@@ -91,6 +95,11 @@
 				force_default_wallpaper = "-1";
 				focus_on_activate = "true";
 				initial_workspace_tracking = "2";
+			};
+
+			opengl = {
+				nvidia_anti_flicker = "true";
+				force_introspection = "2";
 			};
 
 
@@ -144,7 +153,7 @@
 			[
 			"$mainMod, Return, exec, kitty"
 			"$mainMod, W, killactive"
-			"$mainMod, M, exit"
+			"$mainMod CTRL SHIFT, M, exit"
 			"$mainMod, E, exec, nemo"
 			"$mainMod, Space, exec, tofi-drun --drun=true"
 			"$mainMod, L, exec, swaylock"
@@ -153,6 +162,9 @@
 			"$mainMod, right, movefocus, r"
 			"$mainMod, up, movefocus, u"
 			"$mainMod, down, movefocus, d"
+
+			"$mainMod, V, togglefloating,"
+			"$mainMod, F, fullscreen"
 
 			#"$mainMod, 1, workspace, 1"
 			#"$mainMod, 2, workspace, 2"

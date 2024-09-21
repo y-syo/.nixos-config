@@ -16,6 +16,9 @@
 			  "nvidia_uvm"
 			  "nvidia_modeset"
 			];
+	kernel.sysctl = {
+      "vm.max_map_count" = "16777216";
+    };
     loader = {
       efi = {
         canTouchEfiVariables = true;

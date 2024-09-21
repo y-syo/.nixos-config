@@ -9,6 +9,7 @@
     ./conf/zsh.nix
 	./conf/tofi.nix
  	./conf/hyprland.nix
+	./conf/waybar.nix
   ];
 
   nixpkgs = {

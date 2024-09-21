@@ -31,26 +31,26 @@
 		};
 
 		base16Scheme = {
-    base00 = "#0F1419"; # #0F1419 ----
-    base01 = "#131721"; # #131721 ---
-    base02 = "#272D38"; # #272D38 --
-    base03 = "#3E4B59"; # #3E4B59 -
-    base04 = "#BFBDB6"; # #BFBDB6 +
-    base05 = "#E6E1CF"; # #E6E1CF ++
-    base06 = "#E6E1CF"; # #E6E1CF +++
+    base00 = "#171B24"; # #0F1419 ----
+    base01 = "#1F2430"; # #131721 ---
+    base02 = "#242936"; # #272D38 --
+    base03 = "#707A8C"; # #3E4B59 -
+    base04 = "#8A9199"; # #BFBDB6 +
+    base05 = "#CCCAC2"; # #E6E1CF ++
+    base06 = "#D9D7CE"; # #E6E1CF +++
     base07 = "#F3F4F5"; # #F3F4F5 ++++
-    base08 = "#AC4142"; # #AC4142 Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-    base09 = "#D28445"; # #D28445 Integers, Boolean, Constants, XML Attributes, Markup Link Url
-    base0A = "#F4BF75"; # #F4BF75 Classes, Markup Bold, Search Text Background
-    base0B = "#90A959"; # #90A959 Strings, Inherited Class, Markup Code, Diff Inserted
-    base0C = "#75B5AA"; # #75B5AA Support, Regular Expressions, Escape Characters, Markup Quotes
-    base0D = "#6A9FB5"; # #6A9FB5 Functions, Methods, Attribute IDs, Headings
-    base0E = "#AA759F"; # #AA759F Keywords, Storage, Selector, Markup Italic, Diff Changed
-    base0F = "#AA759F"; # #AA759F Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+    base08 = "#F28779"; # #AC4142 Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+    base09 = "#FFAD66"; # #D28445 Integers, Boolean, Constants, XML Attributes, Markup Link Url
+    base0A = "#FFD173"; # #F4BF75 Classes, Markup Bold, Search Text Background
+    base0B = "#D5FF80"; # #90A959 Strings, Inherited Class, Markup Code, Diff Inserted
+    base0C = "#95E6CB"; # #75B5AA Support, Regular Expressions, Escape Characters, Markup Quotes
+    base0D = "#5CCFE6"; # #6A9FB5 Functions, Methods, Attribute IDs, Headings
+    base0E = "#D4BFFF"; # #AA759F Keywords, Storage, Selector, Markup Italic, Diff Changed
+    base0F = "#F29E74"; # #AA759F Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 		};
 		targets.gtk.extraCss = ''
-@define-color accent_color #AC4142;
-@define-color accent_bg_color #AC4142;
+@define-color accent_color #F28779;
+@define-color accent_bg_color #F28779;
 '';
 
 	};
