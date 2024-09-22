@@ -9,20 +9,15 @@
     ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a004f258-3429-444c-b759-31cdf31ffb6d";
+    { device = "/dev/disk/by-uuid/a3d89f01-0e8f-4fd4-80ef-e977185cff60";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/23CC-D3BE";
+    { device = "/dev/disk/by-uuid/95B1-85C2";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-
-	fileSystems."/home/yosyo/data" =
-	{ device = "/dev/disk/by-uuid/a5b89ad3-8179-403a-8b94-e8067f3a1688";
-	  fsType = "ext4";
-	};
 
   swapDevices = [ ];
 
