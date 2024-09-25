@@ -38,7 +38,7 @@
 
 	firefox neovim cinnamon.nemo
 
-	drawing spotify qbittorrent signal-desktop vesktop easyeffects
+	drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects
   ];
 
   programs.home-manager.enable = true;

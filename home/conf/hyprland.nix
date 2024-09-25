@@ -47,13 +47,13 @@
 				gaps_out = "8";
 				border_size = "2";
 				"col.active_border"  = lib.mkForce "rgba(f28779ff)";
-				"col.inactive_border" = lib.mkForce "rgba(2b2b2b00)";
+				"col.inactive_border" = lib.mkForce "rgba(707a8cff)";
 				layout = "dwindle";
 				allow_tearing = "false";
 			};
 
 			decoration = {
-				rounding = "7";
+				rounding = "0";
 				drop_shadow = "no";
 				blur = {
 					enabled = "true";
