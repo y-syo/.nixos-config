@@ -24,10 +24,10 @@
   };
 
   programs = {
-    steam.enable = true;
-    sway = {
-	  enable = true;
-	  package = pkgs.swayfx;
+    steam = {
+      enable = true;
+      extraPackages = with pkgs; [ libkrb5 keyutils gamescope ];
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
     zsh.enable = true;
   };
