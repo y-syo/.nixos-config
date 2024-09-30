@@ -10,7 +10,8 @@
 	./conf/tofi.nix
  	./conf/hyprland.nix
 	./conf/waybar.nix
-  ];
+	./emacs.nix
+];
 
   nixpkgs = {
     config = {
@@ -36,7 +37,7 @@
 
 	swww
 
-	firefox neovim cinnamon.nemo
+	firefox cinnamon.nemo
 
 	drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects
   ];

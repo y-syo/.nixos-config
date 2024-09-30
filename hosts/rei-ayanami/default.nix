@@ -29,6 +29,7 @@
       extraPackages = with pkgs; [ libkrb5 keyutils gamescope ];
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
+	hyprland.enable = true;
     zsh.enable = true;
   };
 
