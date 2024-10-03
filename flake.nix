@@ -35,7 +35,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, unstablepkgs, nixos-cosmic, ... }:
+  outputs = inputs@{ self, nixpkgs, unstablepkgs, home-manager, nixos-cosmic, ... }:
   let
 	unstableOverlay = final: prev: {
 	  unstable = import unstablepkgs {
@@ -74,6 +74,18 @@
 			nixos-cosmic.nixosModules.default
 			./hosts/rei-ayanami/default.nix
 		];
+      };
+    };
+    homeConfigurations = {
+      "yosyo" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home/yosyo/home.nix ];
+      };
+      "mmoussou" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home/mmoussou/home.nix ];
       };
     };
   };
