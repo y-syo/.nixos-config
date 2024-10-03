@@ -8,7 +8,6 @@
 	./tofi.nix
 
     ../shared/dev.nix
-	../shared/desktop.nix
     ../shared/stylix.nix
     ../shared/kitty.nix
     ../shared/zsh.nix
