@@ -1,29 +1,29 @@
 { config, lib, ... }:
 
 {
-	programs.tofi = {
-		enable = true;
-		settings = lib.mkForce {
-			width = "100%";
-			height = "100%";
+  programs.tofi = {
+    enable = true;
+    settings = lib.mkForce {
+      width = "100%";
+      height = "100%";
 
-			prompt-text = "> ";
+      prompt-text = "> ";
 
-			text-color = "#b8b5b1";
-			selection-color = "#de3c3c";
-			input-color = "#ede0d1";
+      text-color = "#b8b5b1";
+      selection-color = "#de3c3c";
+      input-color = "#ede0d1";
 
-			border-width = "0";
-			outline-width = "0";
-			padding-left = "40%";
-			padding-top = "20%";
+      border-width = "0";
+      outline-width = "0";
+      padding-left = "40%";
+      padding-top = "20%";
 
-			result-spacing = "15";
+      result-spacing = "15";
 
-			num-results = "10";
-			background-color = "#050505cf";
+      num-results = "10";
+      background-color = "#050505cf";
 
-			terminal = "kitty";
-		};
-	};
+      terminal = "kitty";
+    };
+  };
 }

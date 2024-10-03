@@ -1,9 +1,9 @@
 { pkgs, config, ... }:
 
 {
-	programs.emacs = {
-		enable = true;
-		package = pkgs.emacs-nox;
-		#extraConfig = ;
-	};
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs-nox;
+    #extraConfig = ;
+  };
 }

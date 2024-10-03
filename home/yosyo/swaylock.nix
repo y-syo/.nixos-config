@@ -7,7 +7,7 @@
 
   programs = {
     swaylock = {
-	    enable = true;
-	  };
+      enable = true;
+    };
   };
 }

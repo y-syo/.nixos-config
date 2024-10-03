@@ -1,5 +1,5 @@
 {
-  description = "yosyo's Flake config :3";
+  description = "yosyo's flake config :3";
 
   inputs = {
 
@@ -48,7 +48,7 @@
       forSystems = nixpkgs.lib.genAttrs systems;
     in
       {
-        packages = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+        # packages = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
         nixosConfigurations = {
           T470 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
@@ -60,12 +60,12 @@
             specialArgs = { inherit inputs outputs; };
             modules = [
               {
-                nix.settings = {
-                  nixpkgs = {
+                nixpkgs = {
                     overlays = [ unstableOverlay ];
                     config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
-                  }
-                    extra-substituters = [ "https://cosmic.cachix.org/" "https://ezkea.cachix.org" ];
+                  };
+                nix.settings = {
+                  extra-substituters = [ "https://cosmic.cachix.org/" "https://ezkea.cachix.org" ];
                   extra-trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
                 };
               }

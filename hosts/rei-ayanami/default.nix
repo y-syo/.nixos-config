@@ -16,11 +16,11 @@
 
   nixpkgs = {
     config = {
-	    allowUnfree = true;
-	  };
-    overlays = [
-	    (final: _prev: import ../../pkgs { pkgs = final; })
-	  ];
+      allowUnfree = true;
+    };
+    #overlays = [
+    #  (final: _prev: import ../../pkgs { pkgs = final; })
+    #];
   };
 
   programs = {
@@ -28,8 +28,8 @@
       enable = true;
       extraPackages = with pkgs; [ libkrb5 keyutils gamescope ];
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
-	  };
-	  hyprland.enable = true;
+    };
+    hyprland.enable = true;
     zsh.enable = true;
   };
 
@@ -41,7 +41,7 @@
 
   security = {
     pam.services.swaylock = {};
-	  polkit.enable = true;
+    polkit.enable = true;
   };
 
   users.users.yosyo = {

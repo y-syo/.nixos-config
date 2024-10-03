@@ -32,18 +32,18 @@
       open = false;
       prime = {
         # allowExternalGpu = false;
-	      sync.enable = true;
-	      #reverseSync.enable = true;
-	      #offload = {
-	      #  enable = true;
-	      #  enableOffloadCmd = true;
-	      #};
-	      nvidiaBusId = "PCI:1:0:0";
-	      amdgpuBusId = "PCI:7:0:0";
-	    };
-	    powerManagement = {
-	      enable = true;
-		    # finegrained = true;
+        sync.enable = true;
+        #reverseSync.enable = true;
+        #offload = {
+        #  enable = true;
+        #  enableOffloadCmd = true;
+        #};
+        nvidiaBusId = "PCI:1:0:0";
+        amdgpuBusId = "PCI:7:0:0";
+      };
+      powerManagement = {
+        enable = true;
+        # finegrained = true;
       };
       package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;

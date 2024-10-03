@@ -2,7 +2,7 @@
 
 {
   boot = {
-	  kernelModules = [ "uinput" ];
+    kernelModules = [ "uinput" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -14,6 +14,6 @@
         device = "nodev";
         # useOSProber = true;
       };
-	  };
+    };
   };
 }

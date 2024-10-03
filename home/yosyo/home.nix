@@ -2,16 +2,16 @@
 
 {
   imports = [
-	  ./waybar.nix
- 	  ./hyprland.nix
-	  ./swaylock.nix
-	  ./tofi.nix
+    ./waybar.nix
+     ./hyprland.nix
+    ./swaylock.nix
+    ./tofi.nix
 
     ../shared/dev.nix
     ../shared/stylix.nix
     ../shared/kitty.nix
     ../shared/zsh.nix
-	  ../shared/emacs.nix
+    ../shared/emacs.nix
   ];
 
   nixpkgs = {
@@ -34,14 +34,14 @@
   home.homeDirectory = "/home/yosyo";
 
   home.packages = with pkgs; [
-	  dconf
+    dconf
 
-	  swww
+    swww
 
-	  firefox cinnamon.nemo
+    firefox cinnamon.nemo
 
-	  neovim
-	  drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects
+    neovim
+    drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects
   ];
 
   programs.home-manager.enable = true;

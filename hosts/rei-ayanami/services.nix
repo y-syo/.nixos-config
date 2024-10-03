@@ -2,10 +2,10 @@
 
 {
   services = {
-    #	udev.extraRules = ''
+    #  udev.extraRules = ''
     #      KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
     #    '';
-	  gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -14,29 +14,29 @@
       wireplumber.enable = true;
     };
     xserver = {
-    	videoDrivers = [ "nvidia" "amdgpu" ];
-	    xkb = {
+      videoDrivers = [ "nvidia" "amdgpu" ];
+      xkb = {
         layout = "us";
         variant = "intl";
-	    };
+      };
     };
-	  libinput = {
+    libinput = {
       enable = true;
       mouse.accelProfile = "flat";
     };
     openssh.enable = true;
     fstrim.enable = true;
-	  avahi = {
-	    enable = true;
-	    reflector = true;
-	    nssmdns4 = true;
-	    publish = {
-	      enable = true;
-		    addresses = true;
-		    userServices = true;
-		    workstation = true;
-	    };
-	  };
+    avahi = {
+      enable = true;
+      reflector = true;
+      nssmdns4 = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        userServices = true;
+        workstation = true;
+      };
+    };
   };
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {

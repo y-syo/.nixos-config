@@ -2,7 +2,7 @@
 
 {
   services = {
-	  udev.extraRules = ''
+    udev.extraRules = ''
       KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
     '';
     pipewire = {
@@ -13,27 +13,27 @@
       wireplumber.enable = true;
     };
     xserver = {
-	    xkb = {
+      xkb = {
         layout = "us";
         variant = "intl";
-	    };
+      };
     };
-	  libinput = {
+    libinput = {
       enable = true;
       mouse.accelProfile = "flat";
     };
     openssh.enable = true;
     fstrim.enable = true;
-	  avahi = {
-	    enable = true;
-	    reflector = true;
-	    nssmdns4 = true;
-	    publish = {
-	      enable = true;
-		    addresses = true;
-		    userServices = true;
-		    workstation = true;
-	    };
-	  };
+    avahi = {
+      enable = true;
+      reflector = true;
+      nssmdns4 = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        userServices = true;
+        workstation = true;
+      };
+    };
   };
 }
