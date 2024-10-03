@@ -2,15 +2,17 @@
 
 {
   imports = [
-    ./dev.nix
-	./desktop.nix
-    ./conf/stylix.nix
-    ./conf/kitty.nix
-    ./conf/zsh.nix
-	./conf/tofi.nix
- 	./conf/hyprland.nix
-	./conf/waybar.nix
-	./emacs.nix
+	./waybar.nix
+ 	./hyprland.nix
+	./swaylock.nix
+	./tofi.nix
+
+    ../shared/dev.nix
+	../shared/desktop.nix
+    ../shared/stylix.nix
+    ../shared/kitty.nix
+    ../shared/zsh.nix
+	../shared/emacs.nix
 ];
 
   nixpkgs = {
@@ -39,6 +41,7 @@
 
 	firefox cinnamon.nemo
 
+	neovim
 	drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects
   ];
 
@@ -48,5 +51,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }

@@ -75,7 +75,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
-    users.yosyo = import ../../home/home.nix;
+    users.yosyo = import ../../home/yosyo/home.nix;
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
