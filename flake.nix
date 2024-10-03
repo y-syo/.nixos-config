@@ -14,41 +14,41 @@
 
     stylix.url = "github:danth/stylix/release-24.05";
 
-	  #gross.url = "github:fufexan/gross";
+    #gross.url = "github:fufexan/gross";
 
-	  fabric.url = "github:Fabric-Development/fabric/rewrite";
+    fabric.url = "github:Fabric-Development/fabric/rewrite";
 
-	  nixos-cosmic = {
+    nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-	  pogit = {
-		  url = "github:y-syo/pogit";
-		  inputs.nixpkgs.follows = "nixpkgs";
-	  };
+    pogit = {
+      url = "github:y-syo/pogit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-	  sh-koh = {
-		  url = "github:sh-koh/nixos-config";
-		  inputs.nixpkgs.follows = "nixpkgs";
-	  };
+    sh-koh = {
+      url = "github:sh-koh/nixos-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
   outputs = inputs@{ self, nixpkgs, unstablepkgs, home-manager, nixos-cosmic, ... }:
     let
-	    unstableOverlay = final: prev: {
-	      unstable = import unstablepkgs {
-		      system = "x86_64-linux";
-		      config.allowUnfree = true;
-	      };
+      unstableOverlay = final: prev: {
+        unstable = import unstablepkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
       };
       inherit (self) outputs;
       systems = [ "x86_64-linux" ];
       forSystems = nixpkgs.lib.genAttrs systems;
     in
       {
-	      packages = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+        packages = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
         nixosConfigurations = {
           T470 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
@@ -59,21 +59,19 @@
             system = "x86_64-linux";
             specialArgs = { inherit inputs outputs; };
             modules = [
-		          {
-		            nix.settings = {
-                  extra-substituters = [ "https://cosmic.cachix.org/" "https://ezkea.cachix.org" ];
-			            extra-trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+              {
+                nix.settings = {
+                  nixpkgs = {
+                    overlays = [ unstableOverlay ];
+                    config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
+                  }
+                    extra-substituters = [ "https://cosmic.cachix.org/" "https://ezkea.cachix.org" ];
+                  extra-trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
                 };
-		          }
-		          ({
-                nixpkgs = {
-                  overlays = [ unstableOverlay ];
-                  config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
-                };
-              })
-			        nixos-cosmic.nixosModules.default
-			        ./hosts/rei-ayanami/default.nix
-		        ];
+              }
+              nixos-cosmic.nixosModules.default
+              ./hosts/rei-ayanami/default.nix
+            ];
           };
         };
         homeConfigurations = {
