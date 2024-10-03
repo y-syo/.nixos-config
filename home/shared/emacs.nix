@@ -2,8 +2,8 @@
 
 {
 	programs.emacs = {
-		      enable = true;
-		      package = pkgs.emacs-nox;
-		      #extraConfig = ;
+		enable = true;
+		package = pkgs.emacs-nox;
+		#extraConfig = ;
 	};
 }

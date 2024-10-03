@@ -6,8 +6,8 @@
     ../shared/stylix.nix
     ../shared/kitty.nix
     ../shared/zsh.nix
-	../shared/emacs.nix
-];
+	  ../shared/emacs.nix
+  ];
 
   nixpkgs = {
     config = {
@@ -29,8 +29,8 @@
   home.homeDirectory = "/nfs/homes/mmoussou";
 
   home.packages = with pkgs; [
-	dconf
-	neovim
+	  dconf
+	  neovim
   ];
 
   programs.home-manager.enable = true;

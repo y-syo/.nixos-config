@@ -9,7 +9,7 @@
       # allowedTCPPorts = [ 47984 47989 48010 ];
       # allowedUDPPorts = [ 47998 47999 48000 48002 48010 ];
     };
-  hosts = {
+    hosts = {
       "0.0.0.0" = [
         "overseauspider.yuanshen.com"
         "log-upload-os.hoyoverse.com"

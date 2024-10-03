@@ -12,15 +12,15 @@
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-	pogit = {
-	  enable = true;
-	  #config = {
+	  pogit = {
+	    enable = true;
+	    #config = {
       #  format = "TODO";
       #  feat = {
       #    icon = "🐶";
       #    default_msg = "a default message.";
       #  };
       #};
-	};
+	  };
   };
 }

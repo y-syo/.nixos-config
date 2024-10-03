@@ -12,14 +12,14 @@
       vim = "nvim";
       l = "ls -lA --color=auto";
       ls = "ls -A --color=auto";
-	  cl = "printf '\\033[2J\\033[3J\\033[1;1H'";
-	  clr = "printf '\\033[2J\\033[3J\\033[1;1H'";
-	  clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	    cl = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	    clr = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	    clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
       re = "sudo nixos-rebuild switch";
       grep = "grep --color=auto";
       kys = "shutdown now";
       c = "gcc -Wall -Werror -Wextra";
-	  val = "valgrind --leak-check=full --track-fds=all --suppressions=minishell.supp --show-leak-kinds=all --trace-children=yes ";
+	    val = "valgrind --leak-check=full --track-fds=all --suppressions=minishell.supp --show-leak-kinds=all --trace-children=yes ";
     };
     initExtra = ''
       autoload -Uz compinit
@@ -49,7 +49,7 @@
 		  LOGO=" "
 		fi
 	    PROMPT="%F{magenta}$LOGO%n%f | %F{red}/%1~%f ❯ "
-      }
+    }
       PROMPT='%F{magenta} %n%f | %F{red}/%1~%f ❯ '
       RPROMPT=\$vcs_info_msg_0_
       '';

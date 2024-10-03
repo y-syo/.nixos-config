@@ -7,16 +7,16 @@
 		#systemd.enable = true;
 		xwayland.enable = true;
 		plugins = with inputs.sh-koh.packages.${pkgs.system} ; [
-          hyprXPrimary
-          hyprsplit
-        ];
+      hyprXPrimary
+      hyprsplit
+    ];
 		settings = {
 			exec-once = [
 				"${pkgs.systemd}/bin/systemctl --user import-environment PATH"
 				"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
 				"${pkgs.swww}/bin/swww init"
 				"${pkgs.waybar}/bin/waybar"
-	        ];
+	    ];
 
 			monitor = [
 				"eDP-1,1920x1080@144,0x0,1"
@@ -66,8 +66,8 @@
 			animations = {
 				enabled = "yes";
 				bezier = [
-				"myBezier, 0.05, 0.9, 0.1, 1.05"
-				"overshot, .29, .09, 0, 1"
+				  "myBezier, 0.05, 0.9, 0.1, 1.05"
+				  "overshot, .29, .09, 0, 1"
 				];
 			};
 			animation = [
@@ -112,8 +112,8 @@
 			"$mainMod" = "SUPER";
 
 			bind =
-			let
-			layoutSwitcher = lib.getExe (
+			  let
+			    layoutSwitcher = lib.getExe (
             pkgs.writeShellApplication {
               name = "layout-switcher.sh";
               runtimeInputs = with pkgs; [
@@ -149,68 +149,68 @@
               '';
             }
           );
-		  in
-			[
-			"$mainMod, Return, exec, kitty"
-			"$mainMod, W, killactive"
-			"$mainMod CTRL SHIFT, M, exit"
-			"$mainMod, E, exec, nemo"
-			"$mainMod, Space, exec, tofi-drun --drun=true"
-			"$mainMod, L, exec, swaylock"
-			
-			"$mainMod, left, movefocus, l"
-			"$mainMod, right, movefocus, r"
-			"$mainMod, up, movefocus, u"
-			"$mainMod, down, movefocus, d"
+		    in
+			    [
+			      "$mainMod, Return, exec, kitty"
+			      "$mainMod, W, killactive"
+			      "$mainMod CTRL SHIFT, M, exit"
+			      "$mainMod, E, exec, nemo"
+			      "$mainMod, Space, exec, tofi-drun --drun=true"
+			      "$mainMod, L, exec, swaylock"
+			      
+			      "$mainMod, left, movefocus, l"
+			      "$mainMod, right, movefocus, r"
+			      "$mainMod, up, movefocus, u"
+			      "$mainMod, down, movefocus, d"
 
-			"$mainMod, V, togglefloating,"
-			"$mainMod, F, fullscreen"
+			      "$mainMod, V, togglefloating,"
+			      "$mainMod, F, fullscreen"
 
-			#"$mainMod, 1, workspace, 1"
-			#"$mainMod, 2, workspace, 2"
-			#"$mainMod, 3, workspace, 3"
-			#"$mainMod, 4, workspace, 4"
-			#"$mainMod, 5, workspace, 5"
-			#"$mainMod, 6, workspace, 6"
-			#"$mainMod, 7, workspace, 7"
-			#"$mainMod, 8, workspace, 8"
-			#"$mainMod, 9, workspace, 9"
-			#"$mainMod, 0, workspace, 10"
+			      #"$mainMod, 1, workspace, 1"
+			      #"$mainMod, 2, workspace, 2"
+			      #"$mainMod, 3, workspace, 3"
+			      #"$mainMod, 4, workspace, 4"
+			      #"$mainMod, 5, workspace, 5"
+			      #"$mainMod, 6, workspace, 6"
+			      #"$mainMod, 7, workspace, 7"
+			      #"$mainMod, 8, workspace, 8"
+			      #"$mainMod, 9, workspace, 9"
+			      #"$mainMod, 0, workspace, 10"
 
-			#"$mainMod SHIFT, 1, movetoworkspace, 1"
-			#"$mainMod SHIFT, 2, movetoworkspace, 2"
-			#"$mainMod SHIFT, 3, movetoworkspace, 3"
-			#"$mainMod SHIFT, 4, movetoworkspace, 4"
-			#"$mainMod SHIFT, 5, movetoworkspace, 5"
-			#"$mainMod SHIFT, 6, movetoworkspace, 6"
-			#"$mainMod SHIFT, 7, movetoworkspace, 7"
-			#"$mainMod SHIFT, 8, movetoworkspace, 8"
-			#"$mainMod SHIFT, 9, movetoworkspace, 9"
-			#"$mainMod SHIFT, 0, movetoworkspace, 10"
-			
-			"$mainMod, S, exec, slurp | grim -g - - | wl-copy"
-			"$mainMod, V, exec, wl-paste"
-			] ++ (builtins.concatLists (
-				builtins.genList (
-            x:
-            let
-              ws =
-                let
-                  c = (x + 1) / 10;
-                in
-                builtins.toString (x + 1 - (c * 10));
-            in
-            [
-              "$mainMod, ${ws}, split:workspace, ${toString (x + 1)}"
-              "$mainMod SHIFT, ${ws}, split:movetoworkspace, ${toString (x + 1)}"
-              "$mainMod CTRL, ${ws}, split:movetoworkspacesilent, ${toString (x + 1)}"
-            ]
-          ) 9
-        ));
+			      #"$mainMod SHIFT, 1, movetoworkspace, 1"
+			      #"$mainMod SHIFT, 2, movetoworkspace, 2"
+			      #"$mainMod SHIFT, 3, movetoworkspace, 3"
+			      #"$mainMod SHIFT, 4, movetoworkspace, 4"
+			      #"$mainMod SHIFT, 5, movetoworkspace, 5"
+			      #"$mainMod SHIFT, 6, movetoworkspace, 6"
+			      #"$mainMod SHIFT, 7, movetoworkspace, 7"
+			      #"$mainMod SHIFT, 8, movetoworkspace, 8"
+			      #"$mainMod SHIFT, 9, movetoworkspace, 9"
+			      #"$mainMod SHIFT, 0, movetoworkspace, 10"
+			      
+			      "$mainMod, S, exec, slurp | grim -g - - | wl-copy"
+			      "$mainMod, V, exec, wl-paste"
+			    ] ++ (builtins.concatLists (
+				    builtins.genList (
+              x:
+              let
+                ws =
+                  let
+                    c = (x + 1) / 10;
+                  in
+                    builtins.toString (x + 1 - (c * 10));
+              in
+                [
+                  "$mainMod, ${ws}, split:workspace, ${toString (x + 1)}"
+                  "$mainMod SHIFT, ${ws}, split:movetoworkspace, ${toString (x + 1)}"
+                  "$mainMod CTRL, ${ws}, split:movetoworkspacesilent, ${toString (x + 1)}"
+                ]
+            ) 9
+          ));
 
 			bindm = [
-			"$mainMod, mouse:272, movewindow"
-			"$mainMod, mouse:273, resizewindow"
+			  "$mainMod, mouse:272, movewindow"
+			  "$mainMod, mouse:273, resizewindow"
 			];
 		};
 	};
