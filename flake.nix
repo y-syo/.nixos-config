@@ -18,6 +18,11 @@
 
     fabric.url = "github:Fabric-Development/fabric/rewrite";
 
+    sf-mono-liga-src = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
+    };
+
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +48,18 @@
           config.allowUnfree = true;
         };
       };
+      sfmonoOverlay = final: prev: {
+        sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
+          pname = "sf-mono-liga-bin";
+          version = "dev";
+          src = inputs.sf-mono-liga-src;
+          dontConfigure = true;
+          installPhase = ''
+            mkdir -p $out/share/fonts/opentype
+            cp -R $src/*.otf $out/share/fonts/opentype/
+          '';
+        };
+      }; 
       inherit (self) outputs;
       systems = [ "x86_64-linux" ];
       forSystems = nixpkgs.lib.genAttrs systems;
@@ -61,7 +78,7 @@
             modules = [
               {
                 nixpkgs = {
-                    overlays = [ unstableOverlay ];
+                    overlays = [ unstableOverlay sfmonoOverlay ];
                     config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
                   };
                 nix.settings = {

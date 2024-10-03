@@ -6,7 +6,7 @@
     autocd = true;
     enableCompletion = true;
     shellAliases = {
-      e = "emacs -nw";
+      e = "emacs";
       v = "nvim";
       vi = "nvim";
       vim = "nvim";

@@ -21,8 +21,8 @@
 
     fonts = {
       monospace = {
-        name = "JetBrainsMono-Regular";
-        package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        name = "Liga SFMono Nerd Font";
+        package = pkgs.sf-mono-liga-bin;
       };
 
       serif = config.stylix.fonts.monospace;
