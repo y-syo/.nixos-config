@@ -18,8 +18,8 @@
         # ---------------------------------------------------------
 
         "custom/distro" = {
-          #format = "";
-          format = "";
+          format = "";
+          #format = "";
           tooltip = false;
         };
         "hyprland/workspaces" = {
@@ -30,19 +30,19 @@
             "HDMI-A-1" = [ 11 12 13 14 15 16 ];
           };
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
-            "6" = "";
+            "1" = "◆";
+            "2" = "◆";
+            "3" = "◆";
+            "4" = "◆";
+            "5" = "◆";
+            "6" = "◆";
 
-            "11" = "";
-            "12" = "";
-            "13" = "";
-            "14" = "";
-            "15" = "";
-            "16" = "";
+            "11" = "◆";
+            "12" = "◆";
+            "13" = "◆";
+            "14" = "◆";
+            "15" = "◆";
+            "16" = "◆";
           };
         };
 
@@ -57,17 +57,17 @@
 
         "custom/next" = {
           format =  "󰒭";
-          on-click = "playerctl next";
+          on-click = "playerctl --player=spotifyd,spotify next";
           tooltip = false;
         };
         "custom/playpause" = {
           format =  "󰐊";
-          on-click = "playerctl play-pause";
+          on-click = "playerctl --player=spotifyd,spotify play-pause";
           tooltip = false;
         };
         "custom/prev" = {
           format =  "󰒮";
-          on-click = "playerctl previous";
+          on-click = "playerctl --player=spotifyd,spotify previous";
           tooltip = false;
         };
         mpris = {
@@ -123,8 +123,8 @@ window#waybar {
 
 #custom-distro {
   margin-left: 8px;
-  padding: 0px 8px;
-  font-size: 20px;
+  padding: 0px 8px 0px 7px;
+  font-size: 16px;
   color: @base08;
 }
 
