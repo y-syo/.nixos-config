@@ -6,7 +6,6 @@
      ./hyprland.nix
     ./swaylock.nix
     ./tofi.nix
-    ./aagl.nix
 
     ../shared/dev.nix
     ../shared/stylix.nix

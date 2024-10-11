@@ -38,6 +38,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, unstablepkgs, home-manager, nixos-cosmic, ... }:
