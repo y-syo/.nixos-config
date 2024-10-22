@@ -34,6 +34,8 @@
   home.homeDirectory = "/home/yosyo";
 
   home.packages = with pkgs; [
+    bottles
+
     dconf
 
     swww

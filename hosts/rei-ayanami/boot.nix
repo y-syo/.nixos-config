@@ -1,7 +1,17 @@
-{ pkgs, lib, config, inputs, outputs, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
+let
+  windowsConf = ''
+    title  Windows
+    efi     /shellx64.efi
+    options -nointerrupt -noconsolein -noconsoleout HD2d65535a1:EFI\Microsoft\Boot\Bootmgfw.efi
+
+  '';
+in
 {
-
+  imports = [
+    inputs.lanzaboote.nixosModules.lanzaboote
+  ];
 
   boot = {
     initrd = {
@@ -22,15 +32,42 @@
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
       };
-      grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-        useOSProber = true;
-        default = "saved";
-      };
+      #grub = {
+      #  enable = true;
+      #  efiSupport = true;
+      #  device = "nodev";
+      #  useOSProber = true;
+      #  default = "saved";
+      #};
+	  systemd-boot = {
+	    enable = lib.mkForce false;
+		consoleMode = "max";
+	  };
+    };
+	lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+	  package = lib.mkForce (
+        pkgs.writeShellApplication {
+          name = "lzbt";
+          runtimeInputs = [
+            inputs.lanzaboote.packages.tool
+            pkgs.coreutils
+            pkgs.sbctl
+          ];
+          text = ''
+            lzbt "$@"
+            MP='${config.boot.loader.efi.efiSysMountPoint}'
+            cp -f '${pkgs.edk2-uefi-shell.efi}' "$MP/shellx64.efi"
+            mkdir -p "$MP/loader/entries"
+            sbctl sign -s "$MP/shellx64.efi"
+            cat << EOF > "$MP/loader/entries/windows.conf"
+            ${windowsConf}
+            EOF
+          '';
+		}
+	  );
     };
   };
 }

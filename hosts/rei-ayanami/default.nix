@@ -8,6 +8,7 @@
       ./services.nix
       ./boot.nix
       ./env.nix
+      ./aagl.nix
 
       inputs.home-manager.nixosModules.home-manager
     ];
@@ -52,6 +53,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    
     xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd
 
     wget curl killall jaq socat ripgrep jc btop fastfetch
