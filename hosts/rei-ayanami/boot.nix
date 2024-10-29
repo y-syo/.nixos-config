@@ -4,7 +4,7 @@ let
   windowsConf = ''
     title  Windows
     efi     /shellx64.efi
-    options -nointerrupt -noconsolein -noconsoleout HD2d65535a1:EFI\Microsoft\Boot\Bootmgfw.efi
+    options -nointerrupt -noconsolein -noconsoleout HD753a3fb51:EFI\Microsoft\Boot\Bootmgfw.efi
 
   '';
 in
@@ -32,6 +32,7 @@ in
     loader = {
       efi = {
         canTouchEfiVariables = true;
+		efiSysMountPoint = "/boot";
       };
       #grub = {
       #  enable = true;
@@ -43,6 +44,8 @@ in
 	  systemd-boot = {
 	    enable = lib.mkForce false;
 		consoleMode = "max";
+        extraFiles."shellx64.efi" = pkgs.edk2-uefi-shell.efi;
+        extraEntries."windows.conf" = windowsConf;
 	  };
     };
 	lanzaboote = {
@@ -52,7 +55,7 @@ in
         pkgs.writeShellApplication {
           name = "lzbt";
           runtimeInputs = [
-            inputs.lanzaboote.packages.tool
+            inputs.lanzaboote.packages.${pkgs.system}.tool
             pkgs.coreutils
             pkgs.sbctl
           ];
