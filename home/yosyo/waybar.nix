@@ -123,7 +123,7 @@ window#waybar {
 
 #custom-distro {
   margin-left: 8px;
-  padding: 0px 8px 0px 7px;
+  padding: 0px 10px 0px 5px;
   font-size: 16px;
   color: @base08;
 }
