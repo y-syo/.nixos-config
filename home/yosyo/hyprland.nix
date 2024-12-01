@@ -1,4 +1,4 @@
-{ pkgs, config, lib, inputs, ... }:
+{ pkgs, config, lib, inputs, outputs, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -6,9 +6,9 @@
     #package = pkgs.unstable.hyprland;
     #systemd.enable = true;
     xwayland.enable = true;
-    plugins = with inputs.sh-koh.packages.${pkgs.system} ; [
-      hyprXPrimary
-      hyprsplit
+    plugins = with pkgs ; [
+      #hyprXPrimary
+      #hyprsplit
     ];
     settings = {
       exec-once = [

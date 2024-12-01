@@ -34,10 +34,9 @@
     zsh.enable = true;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   security = {
@@ -54,7 +53,7 @@
 
   environment.systemPackages = with pkgs; [
     
-    xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd
+    xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd hyprsplit
 
     wget curl killall jaq socat ripgrep jc btop fastfetch
 

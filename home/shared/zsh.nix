@@ -20,6 +20,7 @@
       kys = "shutdown now";
       c = "gcc -Wall -Werror -Wextra";
       val = "valgrind --leak-check=full --track-fds=all --suppressions=minishell.supp --show-leak-kinds=all --trace-children=yes ";
+	  "60fps" = "hyprctl keyword monitor 'eDP-1,1920x1080@60,0x0,1'";
     };
     initExtra = ''
       autoload -Uz compinit

@@ -40,9 +40,9 @@
 
     swww
 
-    firefox cinnamon.nemo
+    firefox nemo
 
-    neovim
+    neovim scrcpy
     drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects
   ];
 

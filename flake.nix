@@ -4,28 +4,21 @@
   inputs = {
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     stylix.url = "github:danth/stylix/release-24.05";
 
-    #gross.url = "github:fufexan/gross";
-
-    fabric.url = "github:Fabric-Development/fabric/rewrite";
+    fabric.url = "github:Fabric-Development/fabric";
 
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
-    };
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     pogit = {
@@ -34,12 +27,12 @@
     };
 
     sh-koh = {
-      url = "github:sh-koh/nixos-config";
+      url = "github:sh-koh/nixos-config/009e4d2a1604c6bfa48aa5766115a0babc12ad02";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/release-24.05";
+      url = "github:ezKEa/aagl-gtk-on-nix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,7 +43,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, unstablepkgs, home-manager, nixos-cosmic, ... }:
+  outputs = inputs@{ self, nixpkgs, unstablepkgs, home-manager, ... }:
     let
       unstableOverlay = final: prev: {
         unstable = import unstablepkgs {
@@ -75,7 +68,7 @@
       forSystems = nixpkgs.lib.genAttrs systems;
     in
       {
-        # packages = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+        packages = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
         nixosConfigurations = {
           T470 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
@@ -92,18 +85,18 @@
                     config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
                   };
                 nix.settings = {
-                  extra-substituters = [ "https://cosmic.cachix.org/" "https://ezkea.cachix.org" ];
-                  extra-trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+                  extra-substituters = [ "https://ezkea.cachix.org" ];
+                  extra-trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
                 };
               }
-              nixos-cosmic.nixosModules.default
               ./hosts/rei-ayanami/default.nix
             ];
           };
         };
         homeConfigurations = {
           "yosyo" = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            #pkgs = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
             extraSpecialArgs = { inherit inputs; };
             modules = [ ./home/yosyo/home.nix ];
           };
