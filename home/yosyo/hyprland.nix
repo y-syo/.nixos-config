@@ -6,9 +6,9 @@
     #package = pkgs.unstable.hyprland;
     #systemd.enable = true;
     xwayland.enable = true;
-    plugins = with pkgs ; [
-      #hyprXPrimary
-      #hyprsplit
+    plugins = [
+      inputs.sh-koh.packages.${pkgs.system}.hyprXPrimary
+      pkgs.hyprlandPlugins.hyprsplit
     ];
     settings = {
       exec-once = [
@@ -53,8 +53,8 @@
       };
 
       decoration = {
-        rounding = "0";
-        drop_shadow = "no";
+        rounding = "3";
+        shadow.enabled = "false";
         blur = {
           enabled = "true";
           size =  "3";
@@ -88,20 +88,14 @@
 
       misc = {
         disable_splash_rendering = "true";
-        disable_hyprland_logo = "true";
+        disable_hyprland_logo = "false"; #"true";
         mouse_move_enables_dpms = "true";
         key_press_enables_dpms = "true";
-        no_direct_scanout = "false";
-        force_default_wallpaper = "-1";
+        #no_direct_scanout = "false";
+        force_default_wallpaper = "0"; #"-1";
         focus_on_activate = "true";
         initial_workspace_tracking = "2";
       };
-
-      opengl = {
-        nvidia_anti_flicker = "true";
-        force_introspection = "1";
-      };
-
 
       plugin = {
         xwaylandprimary = {

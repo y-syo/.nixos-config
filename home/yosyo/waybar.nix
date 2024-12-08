@@ -25,10 +25,10 @@
         "hyprland/workspaces" = {
           format = "{icon}";
           tooltip = false;
-          "persistent-workspaces" = {
-            "eDP-1" = [ 1 2 3 4 5 6 ];
-            "HDMI-A-1" = [ 11 12 13 14 15 16 ];
-          };
+          #"persistent-workspaces" = {
+          #  "eDP-1" = [ 1 2 3 4 5 6 ];
+          #  "HDMI-A-1" = [ 11 12 13 14 15 16 ];
+          #};
           format-icons = {
             "1" = "◆";
             "2" = "◆";

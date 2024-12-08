@@ -84,12 +84,25 @@
                     overlays = [ unstableOverlay sfmonoOverlay ];
                     config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
                   };
+                }
+              ./hosts/rei-ayanami/default.nix
+            ];
+          };
+          nurture = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs outputs; };
+            modules = [
+              {
+                nixpkgs = {
+                  overlays = [ unstableOverlay sfmonoOverlay ];
+                  config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
+                };
                 nix.settings = {
                   extra-substituters = [ "https://ezkea.cachix.org" ];
                   extra-trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
                 };
               }
-              ./hosts/rei-ayanami/default.nix
+              ./hosts/nurture/default.nix
             ];
           };
         };
