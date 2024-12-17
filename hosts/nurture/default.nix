@@ -51,7 +51,7 @@
     
     xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd
 
-    wget curl killall jaq socat ripgrep jc btop fastfetch
+    wget curl killall jaq socat ripgrep jc btop-rocm fastfetch
 
     grim slurp wl-clipboard playerctl brightnessctl gammastep wayland wayland-protocols xdg-utils
   ];

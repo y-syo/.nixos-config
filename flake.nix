@@ -109,7 +109,7 @@
         homeConfigurations = {
           "yosyo" = home-manager.lib.homeManagerConfiguration {
             #pkgs = forSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-            #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
             extraSpecialArgs = { inherit inputs; };
             modules = [ ./home/yosyo/home.nix ];
           };
