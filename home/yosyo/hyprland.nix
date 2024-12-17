@@ -19,13 +19,13 @@
       ];
 
       monitor = [
-        "eDP-1,1920x1080@144,0x0,1"
-        "HDMI-A-1,1920x1080@74.99,auto,1"
+        #"eDP-1,1920x1080@144,0x0,1"
+        "HDMI-A-1,1920x1080@74.99,0x0,1"
       ];
 
       workspace = [
-        "1, monitor:eDP-1, default:true"
-        "11, monitor:HDMI-A-1, default:true"
+        #"1, monitor:eDP-1, default:true"
+        "1, monitor:HDMI-A-1, default:true"
       ];
 
       #env = "XCURSOR_SIZE,24";
@@ -47,13 +47,13 @@
         gaps_out = "8";
         border_size = "2";
         "col.active_border"  = lib.mkForce "rgba(f28779ff)";
-        "col.inactive_border" = lib.mkForce "rgba(707a8cff)";
+        "col.inactive_border" = lib.mkForce "rgba(242936ff)";
         layout = "dwindle";
         allow_tearing = "false";
       };
 
       decoration = {
-        rounding = "3";
+        rounding = "4";
         shadow.enabled = "false";
         blur = {
           enabled = "true";
@@ -88,13 +88,13 @@
 
       misc = {
         disable_splash_rendering = "true";
-        disable_hyprland_logo = "false"; #"true";
+        disable_hyprland_logo = "true";
         mouse_move_enables_dpms = "true";
         key_press_enables_dpms = "true";
-        #no_direct_scanout = "false";
-        force_default_wallpaper = "0"; #"-1";
+        force_default_wallpaper = "-1";
         focus_on_activate = "true";
         initial_workspace_tracking = "2";
+		render_unfocused_fps = "60";
       };
 
       plugin = {

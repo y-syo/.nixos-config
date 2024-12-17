@@ -30,6 +30,10 @@
       sansSerif = config.stylix.fonts.serif;
     };
 
+    targets = {
+      hyprland.enable = false;
+    };
+
     base16Scheme = {
       base00 = "#171B24"; # #0F1419 ----
       base01 = "#1F2430"; # #131721 ---

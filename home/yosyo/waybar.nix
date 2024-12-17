@@ -25,24 +25,24 @@
         "hyprland/workspaces" = {
           format = "{icon}";
           tooltip = false;
-          #"persistent-workspaces" = {
-          #  "eDP-1" = [ 1 2 3 4 5 6 ];
+          "persistent-workspaces" = {
+            "HDMI-A-1" = [ 1 2 3 4 5 6 ];
           #  "HDMI-A-1" = [ 11 12 13 14 15 16 ];
-          #};
+          };
           format-icons = {
-            "1" = "◆";
-            "2" = "◆";
-            "3" = "◆";
-            "4" = "◆";
-            "5" = "◆";
-            "6" = "◆";
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            "6" = "";
 
-            "11" = "◆";
-            "12" = "◆";
-            "13" = "◆";
-            "14" = "◆";
-            "15" = "◆";
-            "16" = "◆";
+            "11" = "";
+            "12" = "";
+            "13" = "";
+            "14" = "";
+            "15" = "";
+            "16" = "";
           };
         };
 
@@ -108,17 +108,17 @@
 }
 
 window#waybar {
-  color: #DCD7BA;
+  color: @base07;
   background: @base00;
-  border: 2px solid @base03;
+  border-radius: 8px;
 }
 
 #custom-distro, #workspaces, #custom-prev, #custom-playpause, #custom-next, #mpris, #battery, #network, #clock, #pulseaudio-slider {
   margin: 6px 4px;
   padding: 2px 8px;
-  border-radius: 0px;
+  /*border-radius: 4px;
   background-color: @base01;
-  border: 2px solid @base02;
+  border: 2px solid @base02;*/
 }
 
 #custom-distro {
@@ -130,7 +130,7 @@ window#waybar {
 
 .modules-left #workspaces {padding: 0px;}
 .modules-left #workspaces button {
-  padding: 0px 4px;
+  padding: 0px 8px;
   border-bottom: 0px solid transparent;
 }
 .modules-left #workspaces button.empty {
@@ -146,7 +146,7 @@ window#waybar {
 .modules-left #workspaces button.focused {
   color: @base08;
   font-weight: 900;
-  border-bottom: 3px solid transparent;
+  border-bottom: 0px solid transparent;
 }
 .modules-left #workspaces button.urgent {
   color: @base0E;
@@ -180,13 +180,17 @@ window#waybar {
 #pulseaudio-slider trough {
     min-height: 7px;
     min-width: 50px;
-    border-radius: 0px;
+    border-radius: 4px;
     background-color: @base00;
 }
 #pulseaudio-slider highlight {
     min-width: 7px;
-    border-radius: 0px;
+    border-radius: 4px;
     background-color: @base08;
+}
+
+#network {
+  padding: 2px 12px 2px 8px;
 }
 
 #network.disconnected {
