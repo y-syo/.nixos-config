@@ -5,7 +5,7 @@
     hostName = "nurture";
     networkmanager.enable = true;
     firewall = {
-      # enable = false;
+      enable = false;
       # allowedTCPPorts = [ 47984 47989 48010 ];
       # allowedUDPPorts = [ 47998 47999 48000 48002 48010 ];
     };
@@ -35,5 +35,12 @@
         "pc.crashsight.wetest.net"
       ];
     };
+  };
+
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "41d49af6c2ec1be6"
+    ];
   };
 }

@@ -18,14 +18,16 @@
         "${pkgs.waybar}/bin/waybar"
       ];
 
-      monitor = [
-        #"eDP-1,1920x1080@144,0x0,1"
-        "HDMI-A-1,1920x1080@74.99,0x0,1"
+       monitor = [
+        #"eDP-1,1920x1080@144,0x0,1",
+        "HDMI-A-1,1920x1080@165.00000,auto,1"
+        "HDMI-A-2,1920x1080@74.99,0x0,1"
       ];
 
       workspace = [
         #"1, monitor:eDP-1, default:true"
         "1, monitor:HDMI-A-1, default:true"
+        "11, monitor:HDMI-A-2, default:true"
       ];
 
       #env = "XCURSOR_SIZE,24";
@@ -148,7 +150,7 @@
             "$mainMod, Return, exec, kitty"
             "$mainMod, W, killactive"
             "$mainMod CTRL SHIFT, M, exit"
-            "$mainMod, E, exec, nemo"
+            "$mainMod, E, exec, nautilus"
             "$mainMod, Space, exec, tofi-drun --drun=true"
             "$mainMod, L, exec, swaylock"
             

@@ -40,10 +40,10 @@
 
     swww
 
-    firefox nemo
+    firefox nautilus
 
     neovim scrcpy
-    drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects
+    drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects obs-studio
   ];
 
   programs.home-manager.enable = true;

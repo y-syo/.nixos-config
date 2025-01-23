@@ -13,7 +13,7 @@
         modules-left = [ "custom/distro" "hyprland/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = [ "mpris" "pulseaudio/slider" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
-        output = [ "eDP-1" "HDMI-A-1" ];
+        output = [ "HDMI-A-2" "HDMI-A-1" ]; #[ "eDP-1" "HDMI-A-1" ];
 
         # ---------------------------------------------------------
 
@@ -27,7 +27,7 @@
           tooltip = false;
           "persistent-workspaces" = {
             "HDMI-A-1" = [ 1 2 3 4 5 6 ];
-          #  "HDMI-A-1" = [ 11 12 13 14 15 16 ];
+            "HDMI-A-2" = [ 11 12 13 14 15 16 ];
           };
           format-icons = {
             "1" = "";

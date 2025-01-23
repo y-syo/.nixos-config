@@ -26,7 +26,9 @@
       enable = true;
       extraPackages = with pkgs; [ libkrb5 keyutils gamescope ];
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
+      protontricks.enable = true;
     };
+    gamescope.enable = true;
     hyprland.enable = true;
     zsh.enable = true;
   };
@@ -49,7 +51,7 @@
 
   environment.systemPackages = with pkgs; [
     
-    xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd
+    xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd gcc
 
     wget curl killall jaq socat ripgrep jc btop-rocm fastfetch
 
