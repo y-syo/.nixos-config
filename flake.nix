@@ -42,7 +42,7 @@
     };
 
     fht-compositor = {
-      url = "github:nferhat/fht-compositor/b03f3bc048be32955c950bd25343b53cab67745c";
+      url = "github:nferhat/fht-compositor";
       #inputs.nixpkgs.follows = "unstablepkgs";
 
       # Disable rust-overlay since it's only meant to be here for the devShell provided

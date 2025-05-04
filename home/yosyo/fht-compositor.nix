@@ -5,6 +5,7 @@
 
   programs.fht-compositor = {
     enable = true;
+    package = inputs.fht-compositor.packages.${pkgs.system}.default;
     /*settings = {
       # Include cursor configuration from home environment
       cursor = {inherit (config.home.pointerCursor) name size;};

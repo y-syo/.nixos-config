@@ -11,7 +11,7 @@
       ./aagl.nix
 
       inputs.home-manager.nixosModules.home-manager
-			#inputs.fht-compositor.nixosModules.default
+      inputs.fht-compositor.nixosModules.default
     ];
 
   virtualisation = {
@@ -32,8 +32,8 @@
       protontricks.enable = true;
     };
     gamescope.enable = true;
-	hyprland.enable = true;
-		#fht-compositor = { enable = true; withUWSM = true; };
+    #hyprland.enable = true;
+    fht-compositor = { enable = true; withUWSM = true; package = inputs.fht-compositor.packages.${pkgs.system}.default; };
     zsh.enable = true;
   };
 
