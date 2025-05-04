@@ -11,9 +11,12 @@
       ./aagl.nix
 
       inputs.home-manager.nixosModules.home-manager
+			#inputs.fht-compositor.nixosModules.default
     ];
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+  };
 
   nixpkgs = {
     config = {
@@ -29,13 +32,27 @@
       protontricks.enable = true;
     };
     gamescope.enable = true;
-    hyprland.enable = true;
+	hyprland.enable = true;
+		#fht-compositor = { enable = true; withUWSM = true; };
     zsh.enable = true;
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  hardware = {
+    xpadneo.enable = true;
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          Experimental = true;
+        };
+      };
+    };
+    opentabletdriver.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   security = {
@@ -43,15 +60,22 @@
     polkit.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config.common.default = [ "gtk" ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   users.users.yosyo = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" "input" "seat" "networkmanager" "docker" ];
+    extraGroups = [ "wheel" "audio" "video" "input" "seat" "networkmanager" "docker" "bluetooth" ];
   };
 
   environment.systemPackages = with pkgs; [
-    
-    xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd gcc
+
+    alsa-plugins xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd gcc mesa.drivers
 
     wget curl killall jaq socat ripgrep jc btop-rocm fastfetch
 
@@ -60,6 +84,7 @@
 
   nix = {
     settings = {
+      download-buffer-size = 524288000;
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
     };

@@ -2,9 +2,12 @@
 
 {
   services = {
-    #  udev.extraRules = ''
-    #      KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
-    #    '';
+    flatpak.enable = true;
+    blueman.enable = true;
+    dbus.packages = with pkgs; [ blueman ];
+    udev.extraRules = ''
+      KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
+    '';
     gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
@@ -14,7 +17,6 @@
       wireplumber.enable = true;
     };
     xserver = {
-      #videoDrivers = [ "nvidia" "amdgpu" ];
       xkb = {
         layout = "us";
         variant = "intl";
@@ -39,6 +41,13 @@
     };
   };
   systemd = {
+    services.flatpak-repo = {
+      wantedBy = [ "multi-user.target" ];
+      path = [ pkgs.flatpak ];
+      script = ''
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      '';
+    };
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
       wantedBy = [ "graphical-session.target" ];

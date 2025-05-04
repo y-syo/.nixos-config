@@ -19,8 +19,11 @@
       grep = "grep --color=auto";
       kys = "shutdown now";
       c = "gcc -Wall -Werror -Wextra";
+      make = "make -j ";
+      "make re" = "make -j re";
       val = "valgrind --leak-check=full --track-fds=all --suppressions=minishell.supp --show-leak-kinds=all --trace-children=yes ";
 	  "60fps" = "hyprctl keyword monitor 'eDP-1,1920x1080@60,0x0,1'";
+      fht = "uwsm start fht-compositor-uwsm.desktop";
     };
     initExtra = ''
       autoload -Uz compinit

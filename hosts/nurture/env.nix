@@ -2,6 +2,10 @@
 
 {
   environment = {
+    variables = {
+      VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d:/run/opengl-driver-32/share/vulkan/icd.d";
+      VK_LAYER_PATH = "/run/opengl-driver/share/vulkan/implicit_layer.d:/run/opengl-driver-32/share/vulkan/implicit_layer.d";
+    };
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       CLUTTER_BACKEND = "wayland";

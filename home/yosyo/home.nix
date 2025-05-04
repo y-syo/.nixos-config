@@ -3,7 +3,8 @@
 {
   imports = [
     ./waybar.nix
-     ./hyprland.nix
+    ./hyprland.nix
+    ./fht-compositor.nix
     ./swaylock.nix
     ./tofi.nix
 
@@ -34,15 +35,17 @@
   home.homeDirectory = "/home/yosyo";
 
   home.packages = with pkgs; [
+    xwayland-satellite
+
     bottles
 
     dconf
 
     swww
 
-    firefox nautilus
+    firefox nautilus libreoffice
 
-    neovim scrcpy
+    neovim android-tools scrcpy
     drawing mpv spotify qbittorrent signal-desktop vesktop easyeffects obs-studio
   ];
 

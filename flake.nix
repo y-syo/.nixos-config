@@ -41,6 +41,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    fht-compositor = {
+      url = "github:nferhat/fht-compositor/b03f3bc048be32955c950bd25343b53cab67745c";
+      #inputs.nixpkgs.follows = "unstablepkgs";
+
+      # Disable rust-overlay since it's only meant to be here for the devShell provided
+      # (IE. only for developement purposes, end users don't care)
+      #inputs.rust-overlay.follows = "";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, unstablepkgs, home-manager, ... }:
