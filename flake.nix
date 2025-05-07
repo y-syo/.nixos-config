@@ -42,12 +42,13 @@
     };
 
     fht-compositor = {
+      #url = "github:y-syo/fht-compositor";
       url = "github:nferhat/fht-compositor";
-      #inputs.nixpkgs.follows = "unstablepkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
 
       # Disable rust-overlay since it's only meant to be here for the devShell provided
       # (IE. only for developement purposes, end users don't care)
-      #inputs.rust-overlay.follows = "";
+      inputs.rust-overlay.follows = "";
     };
 
   };

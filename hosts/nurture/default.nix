@@ -11,7 +11,7 @@
       ./aagl.nix
 
       inputs.home-manager.nixosModules.home-manager
-      inputs.fht-compositor.nixosModules.default
+      #inputs.fht-compositor.nixosModules.default
     ];
 
   virtualisation = {
@@ -32,8 +32,8 @@
       protontricks.enable = true;
     };
     gamescope.enable = true;
-    #hyprland.enable = true;
-    fht-compositor = { enable = true; withUWSM = true; package = inputs.fht-compositor.packages.${pkgs.system}.default; };
+    hyprland.enable = true;
+    #fht-compositor = { enable = true; withUWSM = true; package = inputs.fht-compositor.packages.${pkgs.system}.default; };
     zsh.enable = true;
   };
 
@@ -60,12 +60,12 @@
     polkit.enable = true;
   };
 
-  xdg.portal = {
+  /*xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     config.common.default = [ "gtk" ];
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
+  };*/
 
   users.users.yosyo = {
     shell = pkgs.zsh;
@@ -74,6 +74,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    xwayland-satellite
 
     alsa-plugins xdg-utils vulkan-tools vulkan-validation-layers mate.mate-polkit seatd gcc mesa.drivers
 
