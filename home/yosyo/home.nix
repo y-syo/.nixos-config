@@ -20,8 +20,6 @@
     nautilus
     vesktop
     grim slurp wl-clipboard brightnessctl mpv
-
-	tetrio-desktop
   ];
 
 
