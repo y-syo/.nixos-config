@@ -7,17 +7,21 @@
     ../yosyo/tofi.nix
 
     ../shared/zsh.nix
+    ../shared/kitty.nix
     ../shared/stylix.nix
     ../shared/dev-env.nix
   ];
 
   home.packages = with pkgs; [
+    fastfetch
     neovim
     git
     swww
     nautilus
     vesktop
     grim slurp wl-clipboard brightnessctl mpv
+
+	tetrio-desktop
   ];
 
 

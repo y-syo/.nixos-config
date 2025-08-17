@@ -13,7 +13,7 @@
         "hyprpm reload -nn"
         #"${pkgs.systemd}/bin/systemctl --user import-environment PATH"
         #"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
-        "${pkgs.swww}/bin/swww init"
+        "${pkgs.swww}/bin/swww-daemon"
         "${pkgs.waybar}/bin/waybar"
       ];
 
@@ -140,7 +140,8 @@
           );
         in
           [
-            "$mainMod, Return, exec, kitty"
+            "$mainMod, Return, exec, /usr/bin/kitty"
+            #"$mainMod, Return, exec, nixGL kitty"
             "$mainMod, W, killactive"
             "$mainMod CTRL SHIFT, M, exit"
             "$mainMod, E, exec, nautilus"

@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    package = "";
+	#package = "";
     environment = {
       "KITTY_ENABLE_WAYLAND" = "1";
     };

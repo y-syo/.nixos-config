@@ -22,7 +22,7 @@
       applications = 1.0;
       desktop = 1.0;
       popups = 1.0;
-      terminal = 0.8;
+      terminal = 0.9;
     };
 
     fonts = {
@@ -38,6 +38,7 @@
 
     targets = {
       hyprland.enable = false;
+	  kitty.enable = true;
     };
 
     base16Scheme = {
