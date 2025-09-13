@@ -1,6 +1,8 @@
 { pkgs, config, lib, inputs, outputs, ... }:
 
 {
+  xdg.portal.config.common.default = "*";
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -19,8 +21,8 @@
 
        monitor = [
         #"eDP-1,1920x1080@144,0x0,1",
-        "HDMI-A-1,1920x1080@165.00000,auto,1"
-        "HDMI-A-2,1920x1080@74.99,0x0,1"
+        "HDMI-A-1,1920x1080@165.00000,1280x0,1"
+        "HDMI-A-2,1280x1024@60.02Hz,0x0,1"
       ];
 
       workspace = [

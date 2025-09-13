@@ -19,6 +19,8 @@
     swww
     nautilus
     vesktop
+    signal-desktop
+    feishin
     grim slurp wl-clipboard brightnessctl mpv
   ];
 
