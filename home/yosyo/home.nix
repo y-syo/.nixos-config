@@ -21,6 +21,7 @@
     vesktop
     signal-desktop
     feishin
+	qbittorrent
     grim slurp wl-clipboard brightnessctl mpv
   ];
 

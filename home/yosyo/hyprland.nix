@@ -87,8 +87,6 @@
         preserve_split = "yes";
       };
 
-      gestures.workspace_swipe = "on";
-
       misc = {
         disable_splash_rendering = "true";
         disable_hyprland_logo = "true";
