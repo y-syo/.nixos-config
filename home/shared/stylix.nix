@@ -13,10 +13,7 @@
 
   stylix = {
     enable = true;
-    image = pkgs.fetchurl {
-      url = "https://image.api.playstation.com/vulcan/ap/rnd/202109/1700/08dIur063wTrzgcQOd3lBC7l.png";
-      sha256 = "sha256-ohcWmrHXDfiE9sVd4uL3W4cMfnBCnE52+ofPzkqK8aE=";
-    };
+    image = null;
     polarity = "dark";
     opacity = {
       applications = 1.0;
@@ -39,6 +36,7 @@
     targets = {
       hyprland.enable = false;
 	  kitty.enable = true;
+	  zed.enable = false;
     };
 
     base16Scheme = {

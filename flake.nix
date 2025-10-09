@@ -59,6 +59,18 @@
             ./home/yosyo/home.nix
           ];
         };
+
+        "mmoussou" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            {
+              nixpkgs.overlays = [ sfmonoOverlay ];
+            }
+
+            ./home/mmoussou/home.nix
+          ];
+        };
       };
     };
 }

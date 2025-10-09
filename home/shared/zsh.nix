@@ -14,15 +14,23 @@
       ls = "ls -A --color=auto";
       cl = "printf '\\033[2J\\033[3J\\033[1;1H'";
       clr = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	  clar = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	  cler = "printf '\\033[2J\\033[3J\\033[1;1H'";
       clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
-      re = "home-manager switch";
-      grep = "grep --color=auto";
-      kys = "shutdown now";
+	  claer = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	  celar = "printf '\\033[2J\\033[3J\\033[1;1H'";
+	  clera = "printf '\\033[2J\\033[3J\\033[1;1H'";
+
       c = "gcc -Wall -Werror -Wextra";
-      make = "make -j ";
-      "make re" = "make -j re";
+      re = "home-manager switch";
+      kys = "shutdown now";
       val = "valgrind --leak-check=full --track-fds=all --suppressions=minishell.supp --show-leak-kinds=all --trace-children=yes ";
+      make = "make -j ";
+      grep = "grep --color=auto";
+	  kanel = "nix";
+      "make re" = "make -j re";
 	  "60fps" = "hyprctl keyword monitor 'eDP-1,1920x1080@60,0x0,1'";
+
       fht = "uwsm start fht-compositor-uwsm.desktop";
     };
     initContent = ''
@@ -40,7 +48,7 @@
       setopt prompt_subst
     precmd() {
       vcs_info
-      LOGO="󱄅 "
+      LOGO=" "
       if [ "$DIRENV_DIR" = "-/home/yosyo/Documents/python" ]; then
       LOGO=" "
       elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/python-web" ]; then
