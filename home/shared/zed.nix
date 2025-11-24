@@ -9,11 +9,12 @@
 		#themes = [ ??? ];
 
 		userSettings = {
-			assistant = {
-				enabled = false;
+			telemetry = {
+				diagnostics = false;
+				metrics = false;
 			};
-
-			hour_format = "hour12";
+			disable_ai = true;
+			format_on_save = "off";
 			auto_update = false;
 			terminal = {
 				detect_venv = {
@@ -27,7 +28,6 @@
 				};
 				font_family = "Liga SFMono Nerd Font";
 				line_height = "standard";
-				minimum_contrast = "0";
 
 				toolbar = {
 					breadcrumbs = false;
@@ -42,7 +42,7 @@
 			#	dark = "Ayu Mirage";
 			#};
 			theme = "Ayu Mirage";
-			show_whitespaces = "all";
+			show_whitespaces = "selection";
 			#ui_font_family = "Liga SFMono Nerd Font";
 			buffer_font_family = "Liga SFMono Nerd Font";
 		};

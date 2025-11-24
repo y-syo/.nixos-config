@@ -26,6 +26,8 @@
       kys = "shutdown now";
       val = "valgrind --leak-check=full --track-fds=all --suppressions=minishell.supp --show-leak-kinds=all --trace-children=yes ";
       make = "make -j ";
+      maek = "make -j ";
+      mkae = "make -j ";
       grep = "grep --color=auto";
 	  kanel = "nix";
       "make re" = "make -j re";
@@ -34,7 +36,10 @@
       fht = "uwsm start fht-compositor-uwsm.desktop";
     };
     initContent = ''
-      autoload -Uz compinit
+if [ "$USER" = "mmoussou" ]; then
+  setxkbmap -layout us -variant intl
+fi
+autoload -Uz compinit
       compinit
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
 
