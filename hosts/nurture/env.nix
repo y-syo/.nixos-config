@@ -13,6 +13,7 @@
       MOZ_ENABLE_WAYLAND = "1";
       MOZ_WEBRENDER = "1";
       GDK_BACKEND = "wayland";
+	  ELECTRON_OZONE_PLATFORM_HINT = "auto";
       #WLR_NO_HARDWARE_CURSOR = "1";
     };
   };

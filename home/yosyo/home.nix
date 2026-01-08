@@ -41,6 +41,7 @@
 
     firefox nautilus libreoffice
 
+    cozette
     neovim
     drawing mpv qbittorrent signal-desktop vesktop easyeffects obs-studio
   ];

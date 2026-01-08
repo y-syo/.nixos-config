@@ -41,20 +41,18 @@
     precmd() {
       vcs_info
       LOGO="󱄅 "
-      if [ "$DIRENV_DIR" = "-/home/yosyo/Documents/python" ]; then
-      LOGO=" "
-      elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/python-web" ]; then
+      if [[ "$PWD" == "/etc/nixos"* || "$PWD" == "$HOME/.nixos"* ]]; then
+      LOGO="🔥 "
+      elif [[ "$DIRENV_DIR" == "-/home/yosyo/Documents/web" ]]; then
       LOGO="󰖟 "
-    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/macrolibx" ]; then
-      LOGO="🗿"
-    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/c" ]; then
+    elif [[ "$DIRENV_DIR" == "-/home/yosyo/Documents/c" ]]; then
       LOGO=" "
-    elif [ "$DIRENV_DIR" = "-/home/yosyo/Documents/c++" ]; then
+    elif [[ "$DIRENV_DIR" == "-/home/yosyo/Documents/c++" ]]; then
       LOGO=" "
     fi
-      PROMPT="%F{magenta}$LOGO%n%f | %F{red}/%1~%f ❯ "
+      PROMPT="%F{215}$LOGO%n%f | %F{magenta}/%1~%f ❯ "
     }
-      PROMPT='%F{magenta} %n%f | %F{red}/%1~%f ❯ '
+      PROMPT='%F{215} %n%f | %F{magenta}/%1~%f ❯ '
       RPROMPT=\$vcs_info_msg_0_
       '';
   };

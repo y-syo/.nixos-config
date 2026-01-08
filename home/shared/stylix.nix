@@ -34,6 +34,7 @@
 
     targets = {
       hyprland.enable = false;
+	  swaylock.enable = false;
     };
 
     base16Scheme = {
