@@ -8,6 +8,7 @@
     xwayland.enable = true;
     plugins = [
       pkgs.hyprlandPlugins.hyprsplit
+	  #pkgs.hyprlandPlugins.hyprbars
     ];
     settings = {
 	  ecosystem.no_update_news = "true";
@@ -56,7 +57,13 @@
 
       decoration = {
         rounding = "0";
-        shadow.enabled = "false";
+        shadow = {
+          enabled = "true";
+          range = "1";
+          render_power = "3";
+          offset = "4 4"; #https://pbs.twimg.com/media/G9GAKehXYAA2XHz?format=png&name=900x900
+		  color = "0xff1a1a1a";
+        };
         blur = {
           enabled = "true";
           size =  "3";
@@ -96,6 +103,25 @@
         initial_workspace_tracking = "2";
 		render_unfocused_fps = "60";
       };
+
+      /*plugin = {
+        hyprbars = {
+          bar_height = "25";
+		  bar_color = "";
+          bar_part_of_window = "true";
+          bar_precedence_over_border = "true";
+		  bar_text_font = "Liga SF Mono Nerd Font";
+		  bar_text_size = "12";
+
+          col.text
+
+		  bar_color = ;
+
+
+          # buttons (R -> L)
+          # hyprbars-button = "rgb(ff4040), 10, 󰖭, hyprctl dispatch killactive";
+        };
+      };*/
 
       "$mainMod" = "SUPER";
 

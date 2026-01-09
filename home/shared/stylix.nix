@@ -19,7 +19,18 @@
       terminal = 0.8;
     };
 
-    cursor = { name = "macOS Cursors"; package = pkgs.apple-cursor; size = 24;};
+    cursor = {
+      name = "macOS Cursors";
+      package = pkgs.apple-cursor;
+      size = 24;
+    };
+
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
+    };
 
     fonts = {
       monospace = {

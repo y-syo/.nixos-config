@@ -40,9 +40,9 @@
       setopt prompt_subst
     precmd() {
       vcs_info
-      LOGO="󱄅 "
+      LOGO=" "
       if [[ "$PWD" == "/etc/nixos"* || "$PWD" == "$HOME/.nixos"* ]]; then
-      LOGO="🔥 "
+      LOGO="󱄅 "
       elif [[ "$DIRENV_DIR" == "-/home/yosyo/Documents/web" ]]; then
       LOGO="󰖟 "
     elif [[ "$DIRENV_DIR" == "-/home/yosyo/Documents/c" ]]; then
