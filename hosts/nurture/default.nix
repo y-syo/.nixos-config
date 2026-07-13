@@ -62,7 +62,7 @@
   users.users.yosyo = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" "input" "seat" "networkmanager" "docker" "bluetooth" ];
+    extraGroups = [ "wheel" "audio" "video" "input" "seat" "networkmanager" "docker" "bluetooth" "jackaudio" ];
   };
 
   environment.systemPackages = with pkgs; [

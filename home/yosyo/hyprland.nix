@@ -22,7 +22,7 @@
        monitor = [
         #"eDP-1,1920x1080@144,0x0,1",
         "HDMI-A-1,1920x1080@165.00000,auto,1"
-        "HDMI-A-2,1280x1024@60.02,0x0,1"
+        "HDMI-A-2,1920x1080@165.00,0x0,1"
       ];
 
       workspace = [
@@ -104,24 +104,21 @@
 		render_unfocused_fps = "60";
       };
 
-      /*plugin = {
+      plugin = {
         hyprbars = {
-          bar_height = "25";
-		  bar_color = "";
+          bar_height = "24";
+		  # bar_color = ""; @base09
           bar_part_of_window = "true";
           bar_precedence_over_border = "true";
 		  bar_text_font = "Liga SF Mono Nerd Font";
 		  bar_text_size = "12";
 
-          col.text
-
-		  bar_color = ;
-
+          # col.text = ""; @base00
 
           # buttons (R -> L)
-          # hyprbars-button = "rgb(ff4040), 10, 󰖭, hyprctl dispatch killactive";
+          hyprbars-button = "rgb(ff4040), 10, 󰖭, hyprctl dispatch killactive";
         };
-      };*/
+      };
 
       "$mainMod" = "SUPER";
 

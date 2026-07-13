@@ -2,6 +2,18 @@
 
 {
   services = {
+    jack = {
+      jackd.enable = true;
+      alsa.enable = false;
+      loopback = {
+        enable = true;
+        # buffering parameters for dmix device to work with ALSA only semi-professional sound programs
+        #dmixConfig = ''
+        #  period_size 2048
+        #'';
+      };
+    };
+
     flatpak.enable = true;
     blueman.enable = true;
     dbus.packages = with pkgs; [ blueman ];
@@ -11,8 +23,8 @@
     gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      #alsa.enable = true;
+      #alsa.support32Bit = true;
       pulse.enable = true;
       wireplumber.enable = true;
     };

@@ -39,11 +39,13 @@
 
     swww
 
-    firefox nautilus libreoffice
+    firefox nautilus libreoffice ffmpeg
 
     cozette
     neovim
     drawing mpv qbittorrent signal-desktop vesktop easyeffects obs-studio
+
+	yabridge yabridgectl
   ];
 
   programs.home-manager.enable = true;

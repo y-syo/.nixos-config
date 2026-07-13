@@ -54,7 +54,7 @@
             cp -R $src/*.otf $out/share/fonts/opentype/
           '';
         };
-      }; 
+      };
       inherit (self) outputs;
       systems = [ "x86_64-linux" ];
       forSystems = nixpkgs.lib.genAttrs systems;
@@ -73,7 +73,7 @@
             modules = [
               {
                 nixpkgs = {
-                  overlays = [ unstableOverlay sfmonoOverlay ];
+                  overlays = [ unstableOverlay sfmonoOverlay bitwigOverlay ];
                   config.allowUnfree = true; # this is the only allowUnfree that's actually doing anything
                 };
                 nix.settings = {
